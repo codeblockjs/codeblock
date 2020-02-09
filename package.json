@@ -1,0 +1,42 @@
+{
+  "private": true,
+  "name": "@loopmode/codeblock-workspace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:loopmode/codeblock.git",
+  "author": "Jovica Aleksic <jovica.aleksic@etecture.de>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn lerna run build --stream",
+    "clean": "rm -rf node_modules/.cache && rm -rf docs && yarn lerna run clean --stream",
+    "rebuild": "yarn clean && yarn build",
+    "watch": "yarn lerna run watch --stream --parallel",
+    "start": "start-storybook",
+    "docs": "build-storybook -c .storybook -o docs"
+  },
+  "devDependencies": {
+    "@storybook/addon-info": "^5.3.12",
+    "@storybook/addon-knobs": "^5.3.12",
+    "@storybook/preset-create-react-app": "^1.5.2",
+    "@storybook/react": "^5.3.12",
+    "@types/classnames": "^2.2.9",
+    "@types/jest": "^25.1.1",
+    "@types/prismjs": "^1.16.0",
+    "@types/react": "^16.9.19",
+    "add": "^2.0.6",
+    "babel-loader": "^8.0.6",
+    "babel-preset-react-app": "^9.1.1",
+    "jest": "^25.1.0",
+    "lerna": "^3.20.2",
+    "raw.macro": "^0.3.0",
+    "react": "^16.8.6",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "react-dom": "^16.12.0",
+    "ts-jest": "^25.2.0",
+    "ts-loader": "^6.2.1",
+    "webpack-bundle-analyzer": "^3.6.0"
+  }
+}

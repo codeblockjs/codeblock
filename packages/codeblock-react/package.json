@@ -1,0 +1,21 @@
+{
+  "name": "@loopmode/codeblock-react",
+  "version": "2.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf .tsbuildinfo && rm -rf lib",
+    "rebuild": "yarn clean && yarn build"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "dependencies": {
+    "@loopmode/codeblock-core": "0.0.1",
+    "@loopmode/codeblock-themes-styled": "0.0.1",
+    "@loopmode/codeblock-languages": "0.0.1",
+    "classnames": "^2.2.6"
+  }
+}
