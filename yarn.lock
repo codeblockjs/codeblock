@@ -1982,6 +1982,11 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@loopmode/read-local-files@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@loopmode/read-local-files/-/read-local-files-2.0.0.tgz#67ba6a813ea5fdbcacba5ffdbe6cecc98d578e92"
+  integrity sha512-7KbWsadRkRQSn7RBn+vNk6ziVrEmqa5Bz6lQ5q8LIsCQXHtN/umMcvfVqrolcaDXJ3J5Jbxu/gDU6PZAB0rw6g==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npmjs.org/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -12524,6 +12529,13 @@ webpack-log@^2.0.0:
   dependencies:
     ansi-colors "^3.0.0"
     uuid "^3.3.2"
+
+webpack-merge@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.npmjs.org/webpack-merge/-/webpack-merge-4.2.2.tgz#a27c52ea783d1398afd2087f547d7b9d2f43634d"
+  integrity sha512-TUE1UGoTX2Cd42j3krGYqObZbOD+xF7u28WB7tfUordytSjbWTIjK/8V0amkBfTYN4/pB/GIDlJZZ657BGG19g==
+  dependencies:
+    lodash "^4.17.15"
 
 webpack-sources@^1.1.0, webpack-sources@^1.4.0, webpack-sources@^1.4.1, webpack-sources@^1.4.3:
   version "1.4.3"

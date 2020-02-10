@@ -1,35 +1,54 @@
-import { availableLanguages } from '../support/available-languages';
-import { PrismLanguage } from '../types';
+import { PrismLanguage, LanguageElementMap } from '../types';
 
-const childSelector = '[class*="language-"], [class*="lang-"]';
-const languageRegex = /lang(uage)*-([a-z0-9\-]*)/;
+export const languageSelector = '[class*="language-"], [class*="lang-"]';
+export const languageRegExp: RegExp = /lang(uage)*-([a-z]*)/;
 
 /**
- * Detects prism languages found as CSS classes on the children of a given element.
+ * Takes DOM elements and returns an object where each key of a property
+ * is a detected language while the value is an array of elements with that language.
  *
- * Queries all child elements that have a `language-*` CSS class and returns
- * an array of the unique language names (the `*` values) that were found.
+ * If given an
  *
- * Use case: get all languages of rendered markdown
- *
- * @param {Element} element a DOM element
- * @return {Array} an array of languages found inside `element`
+ * @param {HTMLElement[]} els
  */
-export function detectLanguages(element: HTMLElement): PrismLanguage[] {
-  if (!element) {
-    return [];
+export function detectLanguages(...els: HTMLElement[]): LanguageElementMap {
+  if (Array.isArray(els)) {
+    return els.reduce((result, el) => {
+      const lang = getLanguage(el);
+      if (lang) {
+        if (result[lang]) {
+          result[lang].push(el);
+        } else {
+          result[lang] = [el];
+        }
+      }
+      return result;
+    }, {});
   }
+}
 
-  const elements = Array.from(element.querySelectorAll(childSelector));
-  return elements.reduce((result, el) => {
-    const matches = el.className.match(languageRegex);
-    const language = matches && matches[2];
-    if (
-      availableLanguages.includes(language as PrismLanguage) &&
-      !result.includes(language)
-    ) {
-      result.push(language);
-    }
-    return result;
-  }, []);
+/**
+ * Queries a list of child elements that contain `language-*` in their CSS class.
+ * @param element
+ */
+export function getChildrenWithLanguage(element: HTMLElement): HTMLElement[] {
+  return Array.from(element.querySelectorAll(languageSelector));
+}
+
+/**
+ * Returns a list of unique languages found in the CSS classes of the given DOM elements.
+ * @param elements
+ */
+export function getLanguages(elements: HTMLElement[]): PrismLanguage[] {
+  return Object.keys(detectLanguages(...elements)) as PrismLanguage[];
+}
+
+/**
+ * Returns the prism language defined in the CSS class of a given DOM element.
+ * @param element the DOM element
+ */
+export function getLanguage(element: HTMLElement): PrismLanguage | null {
+  const matches = element.className.match(languageRegExp);
+  const language = matches && matches[2];
+  return language as PrismLanguage;
 }

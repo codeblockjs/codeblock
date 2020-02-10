@@ -1,5 +1,5 @@
 const path = require('path');
-
+const merge = require('webpack-merge');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 
@@ -10,39 +10,55 @@ const babelLoader = {
   }
 };
 
-module.exports = ({ config }, env) => {
-  config.plugins.push(
-    new BundleAnalyzerPlugin({
-      analyzerMode: process.env.NODE_ENV === 'production' ? 'static' : 'server',
-      reportFilename: path.resolve(__dirname, '../docs/report.html')
-    })
-  );
-  config.module.rules.push({
-    test: /\.(ts|tsx)$/,
-    use: [babelLoader]
-  });
-  config.module.rules.push({
-    test: /\.css$/,
-    use: [
-      {
-        loader: 'style-loader'
-      },
-      {
-        loader: 'css-loader',
-        options: {
-          sourceMap: true
-        }
+module.exports = ({ config }) => {
+  // const codeblockMatcher = /(codeblock-[a-z]|[\\/]node_modules[\\/]prismjs[\\/])/;
+  config = merge(config, {
+    optimization: {
+      splitChunks: {
+        chunks: 'all'
       }
-    ],
-    include: [
-      path.resolve(__dirname, '../packages'),
-      path.resolve(__dirname, '../node_modules/prismjs/themes')
+    },
+    resolve: {
+      extensions: ['.ts', '.tsx']
+    },
+    output: {
+      chunkFilename: '[name].[hash].js'
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(ts|tsx)$/,
+          use: [babelLoader]
+        },
+
+        {
+          test: /\.css$/,
+          use: [
+            {
+              loader: 'style-loader'
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            }
+          ],
+          include: [
+            path.resolve(__dirname, '../packages'),
+            path.resolve(__dirname, '../node_modules/prismjs/themes')
+          ]
+        }
+      ]
+    },
+    plugins: [
+      new BundleAnalyzerPlugin({
+        analyzerMode:
+          process.env.NODE_ENV === 'production' ? 'static' : 'server',
+        reportFilename: path.resolve(__dirname, '../docs/report.html')
+      })
     ]
   });
-
-  config.resolve.extensions.push('.ts', '.tsx');
-
-  config.output.chunkFilename = '[name].[hash].bundle.js';
 
   return config;
 };

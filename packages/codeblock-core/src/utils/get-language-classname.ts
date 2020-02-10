@@ -1,6 +1,6 @@
 import { PrismLanguage } from '../types';
 
-export const getLanguageClassName = (language?: PrismLanguage) => {
+export const getLanguageClassName = (language?: PrismLanguage | '') => {
   if (language) {
     return `language-${language}`;
   }

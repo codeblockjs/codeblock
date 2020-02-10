@@ -1,21 +1,32 @@
 {
-  "name": "@loopmode/codeblock-react",
+  "name": "@codeblock/react",
   "version": "2.0.0",
   "main": "index.js",
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
     "clean": "rm -rf .tsbuildinfo && rm -rf lib",
-    "rebuild": "yarn clean && yarn build"
+    "rebuild": "yarn clean && yarn build",
+    "prepublishOnly": "yarn rebuild"
   },
   "peerDependencies": {
-    "react": "^16.8.6"
+    "react": ">=16.8.6"
   },
   "dependencies": {
-    "@loopmode/codeblock-core": "0.0.1",
-    "@loopmode/codeblock-themes-styled": "0.0.1",
-    "@loopmode/codeblock-languages": "0.0.1",
+    "@codeblock/core": "0.0.1",
+    "@codeblock/styled": "0.0.1",
     "classnames": "^2.2.6"
+  },
+  "devDependencies": {
+    "@types/prismjs": "^1.16.0",
+    "@types/react": "^16.9.19",
+    "react": "^16.8.6"
   }
 }

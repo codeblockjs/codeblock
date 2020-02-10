@@ -1,5 +1,5 @@
 {
-  "name": "@loopmode/codeblock-core",
+  "name": "@codeblock/core",
   "version": "0.0.1",
   "main": "lib/index.js",
   "license": "MIT",
@@ -7,6 +7,9 @@
     "lib",
     "types.d.ts"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",

@@ -1,6 +1,5 @@
-export type PrismHighlighter = typeof import('prismjs');
-export type PrismTheme = typeof import('./support/available-themes').availableThemes[number];
-export type PrismLanguage = typeof import('./support/available-languages').availableLanguages[number];
+export type PrismTheme = typeof import('./available-themes').availableThemes[number];
+export type PrismLanguage = typeof import('./available-languages').availableLanguages[number];
 
 export type PrismThemeProvider = {
   [key in PrismTheme]: () => any;
@@ -9,39 +8,37 @@ export type PrismLanguageProvider = {
   [key in PrismLanguage]: () => any;
 };
 
-export interface CodeblockPrismConfig {
+export interface ProviderConfig {
   languages: PrismLanguageProvider;
   themes: PrismThemeProvider;
-  prism: () => PrismHighlighter | Promise<PrismHighlighter>;
 }
 
-export type CodeblockRenderer = React.ForwardRefExoticComponent<
-  CodeblockRendererProps & React.RefAttributes<HTMLElement>
+export type LanguageElementMap = Partial<
+  {
+    [key in PrismLanguage]: HTMLElement[];
+  }
 >;
 
-export interface CodeblockRendererProps {
-  isContainer?: boolean;
-  language?: PrismLanguage;
-  className?: string;
-  children: React.ReactChild | React.ReactChild[];
-}
-
-export interface CodeblockProps {
-  className?: string;
-  children: React.ReactChild | React.ReactChild[];
+export interface ApplyPrismOptions {
+  providers: ProviderConfig;
 
   /**
-   * The container renderer type. Either a string like `'span'` or a component or function.
+   * When multiple languages were detected: Whether to load and apply all languages in parallel.
+   */
+  parallel?: boolean;
+
+  /**
+   * Whether to use Web Workers for async highlighting.
    *
-   * The default renders a `<pre><code>{children}</code></pre>` element
+   * See https://prismjs.com/extending.html#api
    */
-  as?: CodeblockRenderer;
-
+  async?: boolean;
   /**
-   * Whether this element is a container for code elements to automatically detect
+   * A callback to be invoked after highlighting is done. Receives the highlighted element.
+   *
+   * Note that when in `container` mode, this is invoked once for each detected language.
    */
-  isContainer?: boolean;
-  language?: PrismLanguage;
-  theme?: PrismTheme;
-  config?: CodeblockPrismConfig;
+  onHighlight?: Prism.HighlightCallback;
+
+  onHighlightError?: (error: Error) => void;
 }
