@@ -20,7 +20,7 @@
     "rebuild": "yarn clean && yarn build",
     "watch": "yarn lerna run watch --stream --parallel",
     "start": "start-storybook",
-    "deploy-storybook": "export GH_TOKEN=`cat .gh-token` && storybook-to-ghpages"
+    "deploy": "sh ./deploy-storybook.sh"
   },
   "devDependencies": {
     "@loopmode/read-local-files": "^2.0.0",
@@ -34,6 +34,7 @@
     "add": "^2.0.6",
     "babel-loader": "^8.0.6",
     "babel-preset-react-app": "^9.1.1",
+    "cross-env": "^7.0.0",
     "jest": "^25.1.0",
     "lerna": "^3.20.2",
     "raw.macro": "^0.3.0",
