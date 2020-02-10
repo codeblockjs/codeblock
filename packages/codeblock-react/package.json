@@ -1,6 +1,6 @@
 {
   "name": "@codeblock/react",
-  "version": "2.0.0",
+  "version": "0.0.2",
   "main": "index.js",
   "license": "MIT",
   "files": [
@@ -20,8 +20,8 @@
     "react": ">=16.8.6"
   },
   "dependencies": {
-    "@codeblock/core": "0.0.1",
-    "@codeblock/styled": "0.0.1",
+    "@codeblock/core": "^0.0.2",
+    "@codeblock/styled": "^0.0.2",
     "classnames": "^2.2.6"
   },
   "devDependencies": {
