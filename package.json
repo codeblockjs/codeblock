@@ -9,13 +9,18 @@
   "workspaces": [
     "packages/*"
   ],
+  "storybook-deployer": {
+    "gitUsername": "Jovica Aleksic",
+    "gitEmail": "jovica.aleksic@loopmode.de",
+    "commitMessage": "Deploy Storybook"
+  },
   "scripts": {
     "build": "yarn lerna run build --stream",
-    "clean": "rm -rf node_modules/.cache && rm -rf docs && yarn lerna run clean --stream",
+    "clean": "rm -rf node_modules/.cache && rm -rf .out && yarn lerna run clean --stream",
     "rebuild": "yarn clean && yarn build",
     "watch": "yarn lerna run watch --stream --parallel",
     "start": "start-storybook",
-    "docs": "build-storybook -c .storybook -o docs"
+    "deploy-storybook": "export GH_TOKEN=`cat .gh-token` && storybook-to-ghpages"
   },
   "devDependencies": {
     "@loopmode/read-local-files": "^2.0.0",
@@ -23,6 +28,7 @@
     "@storybook/addon-knobs": "^5.3.12",
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.12",
+    "@storybook/storybook-deployer": "^2.8.1",
     "@types/classnames": "^2.2.9",
     "@types/jest": "^25.1.1",
     "add": "^2.0.6",

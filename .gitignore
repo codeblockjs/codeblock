@@ -1,5 +1,6 @@
 lib
 *.log
 node_modules
-docs
 *.tsbuildinfo
+.out
+.gh-token

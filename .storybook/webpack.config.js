@@ -55,7 +55,7 @@ module.exports = ({ config }) => {
       new BundleAnalyzerPlugin({
         analyzerMode:
           process.env.NODE_ENV === 'production' ? 'static' : 'server',
-        reportFilename: path.resolve(__dirname, '../docs/report.html')
+        reportFilename: path.resolve(__dirname, '../.out/report.html')
       })
     ]
   });
