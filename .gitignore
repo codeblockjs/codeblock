@@ -2,5 +2,5 @@ lib
 *.log
 node_modules
 *.tsbuildinfo
-.out
+storybook-static
 .gh-token

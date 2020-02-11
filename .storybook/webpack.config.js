@@ -12,9 +12,6 @@ const babelLoader = {
 
 module.exports = ({ config }) => {
   config = merge(config, {
-    devServer: {
-      contentBase: [path.resolve(__dirname, 'public')]
-    },
     resolve: {
       extensions: ['.ts', '.tsx']
     },
@@ -52,7 +49,10 @@ module.exports = ({ config }) => {
       new BundleAnalyzerPlugin({
         analyzerMode:
           process.env.NODE_ENV === 'production' ? 'static' : 'server',
-        reportFilename: path.resolve(__dirname, '../.out/report.html')
+        reportFilename: path.resolve(
+          __dirname,
+          '../storybook-static/report.html'
+        )
       })
     ]
   });
