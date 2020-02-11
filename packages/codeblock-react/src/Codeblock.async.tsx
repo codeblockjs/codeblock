@@ -4,7 +4,7 @@ import { ProviderConfig } from '@codeblock/core/types';
 import { asyncLanguageProvider } from '@codeblock/core/lib/providers/language-provider-async';
 import { asyncThemeProvider } from '@codeblock/styled/lib/providers/theme-provider-async';
 
-import { Codeblock as DefaultCodeblock } from './Codeblock';
+import { Codeblock } from './Codeblock';
 import { CodeblockProps } from './types';
 
 const asyncProviderConfig: ProviderConfig = {
@@ -12,8 +12,8 @@ const asyncProviderConfig: ProviderConfig = {
   languages: asyncLanguageProvider
 };
 
-export const Codeblock = (props: CodeblockProps) => (
-  <DefaultCodeblock providers={asyncProviderConfig} {...props} />
+export const CodeblockAsync = (props: CodeblockProps) => (
+  <Codeblock providers={asyncProviderConfig} {...props} />
 );
 
-export default Codeblock;
+export default CodeblockAsync;

@@ -4,21 +4,27 @@ import { ProviderConfig } from '@codeblock/core/types';
 import { httpLanguageProvider } from '@codeblock/core/lib/providers/language-provider-http';
 import { staticThemeProvider } from '@codeblock/styled/lib/providers/theme-provider-static';
 
-import { Codeblock } from './Codeblock';
 import { CodeblockProps } from './types';
-import { useLanguagesPath } from './use-languages-path';
+import { CodeblockHTTP } from './Codeblock.http';
+
+import { cdnLanguagesPath } from '@codeblock/core/lib/utils/autoloader';
 
 export const httpProviders: ProviderConfig = {
   languages: httpLanguageProvider,
   themes: staticThemeProvider
 };
 
-export const CodeblockHTTP = ({
-  languagesPath,
+export const CodeblockCDN = ({
+  languagesPath = cdnLanguagesPath,
   ...props
-}: CodeblockProps & { languagesPath: string }) => {
-  useLanguagesPath(languagesPath);
-  return <Codeblock providers={httpProviders} {...props} />;
+}: CodeblockProps & { languagesPath?: string }) => {
+  return (
+    <CodeblockHTTP
+      languagesPath={languagesPath}
+      providers={httpProviders}
+      {...props}
+    />
+  );
 };
 
-export default CodeblockHTTP;
+export default CodeblockCDN;

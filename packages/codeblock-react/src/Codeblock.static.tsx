@@ -4,7 +4,7 @@ import { ProviderConfig } from '@codeblock/core/types';
 import { staticLanguageProvider } from '@codeblock/core/lib/providers/language-provider-static';
 import { staticThemeProvider } from '@codeblock/styled/lib/providers/theme-provider-static';
 
-import { Codeblock as DefaultCodeblock } from './Codeblock';
+import { Codeblock } from './Codeblock';
 import { CodeblockProps } from './types';
 
 export const staticProviders: ProviderConfig = {
@@ -12,8 +12,8 @@ export const staticProviders: ProviderConfig = {
   themes: staticThemeProvider
 };
 
-export const Codeblock = (props: CodeblockProps) => (
-  <DefaultCodeblock providers={staticProviders} {...props} />
+export const CodeblockStatic = (props: CodeblockProps) => (
+  <Codeblock providers={staticProviders} {...props} />
 );
 
-export default Codeblock;
+export default CodeblockStatic;

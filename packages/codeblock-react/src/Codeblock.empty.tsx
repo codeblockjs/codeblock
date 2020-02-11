@@ -4,7 +4,7 @@ import { ProviderConfig } from '@codeblock/core/types';
 import { emptyLanguageProvider } from '@codeblock/core/lib/providers/language-provider-empty';
 import { emptyThemeProvider } from '@codeblock/styled/lib/providers/theme-provider-empty';
 
-import { Codeblock as DefaultCodeblock } from './Codeblock';
+import { Codeblock } from './Codeblock';
 import { CodeblockProps } from './types';
 
 const emptyProviderConfig: ProviderConfig = {
@@ -12,8 +12,8 @@ const emptyProviderConfig: ProviderConfig = {
   languages: emptyLanguageProvider
 };
 
-export const Codeblock = (props: CodeblockProps) => (
-  <DefaultCodeblock providers={emptyProviderConfig} {...props} />
+export const CodeblockEmpty = (props: CodeblockProps) => (
+  <Codeblock providers={emptyProviderConfig} {...props} />
 );
 
-export default Codeblock;
+export default CodeblockEmpty;
