@@ -11,12 +11,9 @@ const babelLoader = {
 };
 
 module.exports = ({ config }) => {
-  // const codeblockMatcher = /(codeblock-[a-z]|[\\/]node_modules[\\/]prismjs[\\/])/;
   config = merge(config, {
-    optimization: {
-      splitChunks: {
-        chunks: 'all'
-      }
+    devServer: {
+      contentBase: [path.resolve(__dirname, 'public')]
     },
     resolve: {
       extensions: ['.ts', '.tsx']
