@@ -16,11 +16,12 @@
   },
   "scripts": {
     "build": "yarn lerna run build --stream",
-    "clean": "rm -rf node_modules/.cache && rm -rf .out && yarn lerna run clean --stream",
+    "clean": "rm -rf node_modules/.cache && rm -rf storybook-static && yarn lerna run clean --stream",
     "rebuild": "yarn clean && yarn build",
     "watch": "yarn lerna run watch --stream --parallel",
-    "start": "start-storybook",
-    "deploy": "sh ./deploy-storybook.sh"
+    "start": "start-storybook -s .storybook/public",
+    "build-storybook": "build-storybook -s .storybook/public",
+    "deploy-storybook": "yarn build-storybook && sh ./deploy-storybook.sh"
   },
   "devDependencies": {
     "@loopmode/read-local-files": "^2.0.0",
