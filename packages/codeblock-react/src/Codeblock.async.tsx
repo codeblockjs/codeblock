@@ -15,3 +15,5 @@ const asyncProviderConfig: ProviderConfig = {
 export const Codeblock = (props: CodeblockProps) => (
   <DefaultCodeblock providers={asyncProviderConfig} {...props} />
 );
+
+export default Codeblock;

@@ -15,3 +15,5 @@ export const staticProviders: ProviderConfig = {
 export const Codeblock = (props: CodeblockProps) => (
   <DefaultCodeblock providers={staticProviders} {...props} />
 );
+
+export default Codeblock;

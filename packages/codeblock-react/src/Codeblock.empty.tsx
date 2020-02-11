@@ -15,3 +15,5 @@ const emptyProviderConfig: ProviderConfig = {
 export const Codeblock = (props: CodeblockProps) => (
   <DefaultCodeblock providers={emptyProviderConfig} {...props} />
 );
+
+export default Codeblock;
