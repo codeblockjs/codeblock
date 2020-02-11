@@ -2,6 +2,7 @@ import { Prism } from '../prism';
 
 import { ApplyPrismOptions, PrismLanguage } from '../types';
 import { detectLanguages } from './detect-languages';
+import { getLanguagesPath } from './autoloader';
 
 const log = {
   warn: (...args: any[]) => {
@@ -56,17 +57,20 @@ async function applyPrismLanguage(
   if (!isMounted()) {
     return;
   }
+
   if (typeof options.providers.languages[language] !== 'function') {
     log.warn('>> Unsupported language', language);
     return;
   }
 
-  try {
-    await options.providers.languages[language]();
-  } catch (error) {
-    log.error('>> failed loading', { language, error });
-    options?.onHighlightError?.(error);
-    return;
+  if (!getLanguagesPath()) {
+    try {
+      await options.providers.languages[language]();
+    } catch (error) {
+      log.error('>> failed loading', { language, error });
+      options?.onHighlightError?.(error);
+      return;
+    }
   }
 
   if (isMounted()) {
