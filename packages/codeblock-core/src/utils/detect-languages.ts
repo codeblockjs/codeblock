@@ -12,19 +12,27 @@ export const languageRegExp: RegExp = /lang(uage)*-([a-z]*)/;
  * @param {HTMLElement[]} els
  */
 export function detectLanguages(...els: HTMLElement[]): LanguageElementMap {
-  if (Array.isArray(els)) {
-    return els.reduce((result, el) => {
-      const lang = getLanguage(el);
-      if (lang) {
-        if (result[lang]) {
-          result[lang].push(el);
-        } else {
-          result[lang] = [el];
-        }
+  const walkChildren = (result: LanguageElementMap, el: HTMLElement) => {
+    const lang = getLanguage(el);
+    if (lang) {
+      if (result[lang]) {
+        result[lang].push(el);
+      } else {
+        result[lang] = [el];
       }
       return result;
-    }, {});
-  }
+    }
+
+    const children = getChildrenWithLanguage(el);
+    return children.reduce(
+      (result, child) => walkChildren(result, child),
+      result
+    );
+  };
+  return els.reduce((result, el) => {
+    result = walkChildren(result, el);
+    return result;
+  }, {});
 }
 
 /**
