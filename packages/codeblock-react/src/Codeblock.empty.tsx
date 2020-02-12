@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ProviderConfig } from '@codeblock/core/types';
 
+import { setAutoloadPath } from '@codeblock/core';
 import emptyLanguageProvider from '@codeblock/languages/lib/empty';
 import emptyThemeProvider from '@codeblock/themes/lib/empty';
 
@@ -13,8 +14,11 @@ const emptyProviderConfig: ProviderConfig = {
   languages: emptyLanguageProvider
 };
 
-export const CodeblockEmpty = (props: CodeblockProps) => (
-  <Codeblock providers={emptyProviderConfig} {...props} />
-);
+export const CodeblockEmpty = (props: CodeblockProps) => {
+  React.useEffect(() => {
+    setAutoloadPath(null);
+  }, []);
+  return <Codeblock providers={emptyProviderConfig} {...props} />;
+};
 
 export default CodeblockEmpty;

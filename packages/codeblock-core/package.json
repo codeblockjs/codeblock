@@ -1,8 +1,21 @@
 {
   "name": "@codeblock/core",
-  "version": "1.0.0",
+  "description": "core dependencies and functionality for @codeblock packages",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "license": "MIT",
+  "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:codeblockjs/codeblock.git",
+    "directory": "packages/codeblock-core"
+  },
+  "homepage": "https://github.com/codeblockjs/codeblock/tree/master/packages/codeblock-core",
+  "keywords": [
+    "react",
+    "prism",
+    "highlighting"
+  ],
   "files": [
     "lib",
     "types.d.ts"

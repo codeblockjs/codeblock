@@ -1,8 +1,21 @@
 {
   "name": "@codeblock/react",
-  "version": "1.0.0",
-  "main": "index.js",
+  "description": "components for using @codeblock with react",
+  "version": "1.0.1",
+  "main": "lib/index.js",
   "license": "MIT",
+  "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:codeblockjs/codeblock.git",
+    "directory": "packages/codeblock-react"
+  },
+  "homepage": "https://github.com/codeblockjs/codeblock/tree/master/packages/codeblock-react",
+  "keywords": [
+    "react",
+    "prism",
+    "highlighting"
+  ],
   "files": [
     "lib"
   ],
@@ -20,9 +33,9 @@
     "react": ">=16.8.6"
   },
   "dependencies": {
-    "@codeblock/core": "^1.0.0",
-    "@codeblock/languages": "^1.0.0",
-    "@codeblock/themes": "^1.0.0",
+    "@codeblock/core": "^1.0.1",
+    "@codeblock/languages": "^1.0.1",
+    "@codeblock/themes": "^1.0.1",
     "classnames": "^2.2.6"
   },
   "devDependencies": {

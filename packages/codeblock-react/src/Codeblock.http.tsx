@@ -14,12 +14,9 @@ export const CodeblockHTTP = ({
   ...props
 }: CodeblockProps & { prismPath: string }) => {
   // set base URL for prism. Note that this is a global setting:
-  // if multiple components set a different value, tha last one wins
-  // also.. unmounting the first one sets it to null for all others - BUG!
-  // TODO: implement lifecycle group
+  // NOTE: if multiple instances set a different value, tha last one wins
   React.useEffect(() => {
     setAutoloadPath(prismPath);
-    return () => setAutoloadPath(null);
   }, [prismPath]);
 
   const httpProviders = React.useMemo<ProviderConfig>(() => {

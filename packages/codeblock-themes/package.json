@@ -1,9 +1,21 @@
 {
   "name": "@codeblock/themes",
-  "description": "Prism themes wrapped in a codeblock CSS class",
-  "version": "1.0.0",
+  "description": "available prism themes and functionality for @codeblock packages",
+  "version": "1.0.1",
   "main": "",
   "license": "MIT",
+  "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:codeblockjs/codeblock.git",
+    "directory": "packages/codeblock-themes"
+  },
+  "homepage": "https://github.com/codeblockjs/codeblock/tree/master/packages/codeblock-themes",
+  "keywords": [
+    "react",
+    "prism",
+    "highlighting"
+  ],
   "files": [
     "lib"
   ],
@@ -19,7 +31,7 @@
     "prepublishOnly": "yarn rebuild"
   },
   "dependencies": {
-    "@codeblock/core": "^1.0.0",
+    "@codeblock/core": "^1.0.1",
     "jotform-css.js": "^1.0.1"
   }
 }
