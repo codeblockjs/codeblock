@@ -1,6 +1,6 @@
 {
   "name": "@codeblock/languages",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "main": "",
   "license": "MIT",
   "files": [
@@ -16,8 +16,7 @@
     "rebuild": "yarn clean && yarn build",
     "prepublishOnly": "yarn rebuild"
   },
-  "peerDependencies": {},
   "dependencies": {
-    "@codeblock/core": "^0.0.2"
+    "@codeblock/core": "^1.0.0"
   }
 }
