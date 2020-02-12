@@ -1,0 +1,23 @@
+{
+  "name": "@codeblock/core",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "types.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf .tsbuildinfo && rm -rf lib",
+    "rebuild": "yarn clean && yarn build",
+    "prepublishOnly": "yarn rebuild"
+  },
+  "dependencies": {
+    "prismjs": "1.19.0"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@codeblock/themes",
+  "description": "Prism themes wrapped in a codeblock CSS class",
+  "version": "1.0.0",
+  "main": "",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prebuild": "node prebuild",
+    "build": "tsc",
+    "watch": "node prebuild && tsc --watch",
+    "clean": "rm -rf lib && rm -rf .tsbuildinfo",
+    "rebuild": "yarn clean && yarn build",
+    "prepublishOnly": "yarn rebuild"
+  },
+  "dependencies": {
+    "@codeblock/core": "^1.0.0",
+    "jotform-css.js": "^1.0.1"
+  }
+}

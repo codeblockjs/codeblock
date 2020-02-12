@@ -1,0 +1,22 @@
+{
+  // "compact": false,
+  "comments": true,
+  "presets": [
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-react",
+      {
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import"
+    // [
+    //   "babel-plugin-typescript-to-proptypes",
+    //   {
+    //     "comments": true
+    //   }
+    // ]
+  ]
+}

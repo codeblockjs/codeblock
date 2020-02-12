@@ -1,0 +1,51 @@
+{
+  "private": true,
+  "name": "@codeblock/workspace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:codeblockjs/codeblock.git",
+  "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "storybook-deployer": {
+    "gitUsername": "Jovica Aleksic",
+    "gitEmail": "jovica.aleksic@loopmode.de",
+    "commitMessage": "Deploy Storybook"
+  },
+  "scripts": {
+    "build": "yarn lerna run build --stream",
+    "clean": "rm -rf node_modules/.cache && rm -rf storybook-static && yarn lerna run clean --stream",
+    "rebuild": "yarn clean && yarn build",
+    "watch": "yarn lerna run watch --stream --parallel",
+    "start": "start-storybook -s .storybook/public -p 9000",
+    "build-storybook": "build-storybook -s .storybook/public",
+    "deploy-storybook": "yarn build-storybook && sh ./deploy-storybook.sh"
+  },
+  "devDependencies": {
+    "@loopmode/read-local-files": "^2.0.0",
+    "@storybook/addon-info": "^5.3.12",
+    "@storybook/addon-knobs": "^5.3.12",
+    "@storybook/preset-create-react-app": "^1.5.2",
+    "@storybook/react": "^5.3.12",
+    "@storybook/storybook-deployer": "^2.8.1",
+    "@types/classnames": "^2.2.9",
+    "@types/fs-extra": "^8.0.1",
+    "@types/jest": "^25.1.1",
+    "add": "^2.0.6",
+    "babel-loader": "^8.0.6",
+    "babel-preset-react-app": "^9.1.1",
+    "cross-env": "^7.0.0",
+    "fs-extra": "^8.1.0",
+    "jest": "^25.1.0",
+    "lerna": "^3.20.2",
+    "raw.macro": "^0.3.0",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "react-dom": "^16.12.0",
+    "ts-jest": "^25.2.0",
+    "ts-loader": "^6.2.1",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-merge": "^4.2.2"
+  }
+}

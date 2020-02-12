@@ -1,4 +1,6 @@
 lib
 *.log
 node_modules
-docs
+*.tsbuildinfo
+storybook-static
+.gh-token
