@@ -1,5 +1,5 @@
-export type PrismTheme = typeof import('./available-themes').availableThemes[number];
-export type PrismLanguage = typeof import('./available-languages').availableLanguages[number];
+export type PrismTheme = typeof import('./available/themes').default[number];
+export type PrismLanguage = typeof import('./available/languages').default[number];
 
 export type PrismThemeProvider = {
   [key in PrismTheme]: () => any;

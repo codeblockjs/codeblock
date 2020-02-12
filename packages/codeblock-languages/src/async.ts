@@ -1,9 +1,12 @@
-import { PrismLanguageProvider } from '@codeblock/core/types';
-
-export const asyncLanguageProvider: PrismLanguageProvider = {
+export default {
   abap: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-abap' */ 'prismjs/components/prism-abap'
+    );
+  },
+  abnf: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-abnf' */ 'prismjs/components/prism-abnf'
     );
   },
   actionscript: () => {
@@ -14,6 +17,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
   ada: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-ada' */ 'prismjs/components/prism-ada'
+    );
+  },
+  antlr4: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-antlr4' */ 'prismjs/components/prism-antlr4'
     );
   },
   apacheconf: () => {
@@ -29,6 +37,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
   applescript: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-applescript' */ 'prismjs/components/prism-applescript'
+    );
+  },
+  aql: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-aql' */ 'prismjs/components/prism-aql'
     );
   },
   arduino: () => {
@@ -81,14 +94,29 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-batch' */ 'prismjs/components/prism-batch'
     );
   },
+  bbcode: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-bbcode' */ 'prismjs/components/prism-bbcode'
+    );
+  },
   bison: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-bison' */ 'prismjs/components/prism-bison'
     );
   },
+  bnf: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-bnf' */ 'prismjs/components/prism-bnf'
+    );
+  },
   brainfuck: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-brainfuck' */ 'prismjs/components/prism-brainfuck'
+    );
+  },
+  brightscript: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-brightscript' */ 'prismjs/components/prism-brightscript'
     );
   },
   bro: () => {
@@ -101,6 +129,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-c' */ 'prismjs/components/prism-c'
     );
   },
+  cil: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-cil' */ 'prismjs/components/prism-cil'
+    );
+  },
   clike: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-clike' */ 'prismjs/components/prism-clike'
@@ -109,6 +142,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
   clojure: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-clojure' */ 'prismjs/components/prism-clojure'
+    );
+  },
+  cmake: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-cmake' */ 'prismjs/components/prism-cmake'
     );
   },
   coffeescript: () => {
@@ -141,14 +179,14 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-csp' */ 'prismjs/components/prism-csp'
     );
   },
-  css: () => {
-    return import(
-      /* webpackChunkName: 'codeblock/language.prism-css' */ 'prismjs/components/prism-css'
-    );
-  },
   'css-extras': () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-css-extras' */ 'prismjs/components/prism-css-extras'
+    );
+  },
+  css: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-css' */ 'prismjs/components/prism-css'
     );
   },
   d: () => {
@@ -171,14 +209,29 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-django' */ 'prismjs/components/prism-django'
     );
   },
+  'dns-zone-file': () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-dns-zone-file' */ 'prismjs/components/prism-dns-zone-file'
+    );
+  },
   docker: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-docker' */ 'prismjs/components/prism-docker'
     );
   },
+  ebnf: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-ebnf' */ 'prismjs/components/prism-ebnf'
+    );
+  },
   eiffel: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-eiffel' */ 'prismjs/components/prism-eiffel'
+    );
+  },
+  ejs: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-ejs' */ 'prismjs/components/prism-ejs'
     );
   },
   elixir: () => {
@@ -201,6 +254,16 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-erlang' */ 'prismjs/components/prism-erlang'
     );
   },
+  etlua: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-etlua' */ 'prismjs/components/prism-etlua'
+    );
+  },
+  'firestore-security-rules': () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-firestore-security-rules' */ 'prismjs/components/prism-firestore-security-rules'
+    );
+  },
   flow: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-flow' */ 'prismjs/components/prism-flow'
@@ -214,6 +277,21 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
   fsharp: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-fsharp' */ 'prismjs/components/prism-fsharp'
+    );
+  },
+  ftl: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-ftl' */ 'prismjs/components/prism-ftl'
+    );
+  },
+  gcode: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-gcode' */ 'prismjs/components/prism-gcode'
+    );
+  },
+  gdscript: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-gdscript' */ 'prismjs/components/prism-gdscript'
     );
   },
   gedcom: () => {
@@ -234,6 +312,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
   glsl: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-glsl' */ 'prismjs/components/prism-glsl'
+    );
+  },
+  gml: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-gml' */ 'prismjs/components/prism-gml'
     );
   },
   go: () => {
@@ -269,6 +352,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
   haxe: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-haxe' */ 'prismjs/components/prism-haxe'
+    );
+  },
+  hcl: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-hcl' */ 'prismjs/components/prism-hcl'
     );
   },
   hpkp: () => {
@@ -321,9 +409,24 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-java' */ 'prismjs/components/prism-java'
     );
   },
+  javadoc: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-javadoc' */ 'prismjs/components/prism-javadoc'
+    );
+  },
+  javadoclike: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-javadoclike' */ 'prismjs/components/prism-javadoclike'
+    );
+  },
   javascript: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-javascript' */ 'prismjs/components/prism-javascript'
+    );
+  },
+  javastacktrace: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-javastacktrace' */ 'prismjs/components/prism-javastacktrace'
     );
   },
   jolie: () => {
@@ -331,9 +434,39 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-jolie' */ 'prismjs/components/prism-jolie'
     );
   },
+  jq: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-jq' */ 'prismjs/components/prism-jq'
+    );
+  },
+  'js-extras': () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-js-extras' */ 'prismjs/components/prism-js-extras'
+    );
+  },
+  'js-templates': () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-js-templates' */ 'prismjs/components/prism-js-templates'
+    );
+  },
+  jsdoc: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-jsdoc' */ 'prismjs/components/prism-jsdoc'
+    );
+  },
   json: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-json' */ 'prismjs/components/prism-json'
+    );
+  },
+  json5: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-json5' */ 'prismjs/components/prism-json5'
+    );
+  },
+  jsonp: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-jsonp' */ 'prismjs/components/prism-jsonp'
     );
   },
   jsx: () => {
@@ -361,9 +494,19 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-latex' */ 'prismjs/components/prism-latex'
     );
   },
+  latte: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-latte' */ 'prismjs/components/prism-latte'
+    );
+  },
   less: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-less' */ 'prismjs/components/prism-less'
+    );
+  },
+  lilypond: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-lilypond' */ 'prismjs/components/prism-lilypond'
     );
   },
   liquid: () => {
@@ -401,14 +544,14 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-markdown' */ 'prismjs/components/prism-markdown'
     );
   },
-  markup: () => {
-    return import(
-      /* webpackChunkName: 'codeblock/language.prism-markup' */ 'prismjs/components/prism-markup'
-    );
-  },
   'markup-templating': () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-markup-templating' */ 'prismjs/components/prism-markup-templating'
+    );
+  },
+  markup: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-markup' */ 'prismjs/components/prism-markup'
     );
   },
   matlab: () => {
@@ -431,14 +574,34 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-monkey' */ 'prismjs/components/prism-monkey'
     );
   },
+  moonscript: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-moonscript' */ 'prismjs/components/prism-moonscript'
+    );
+  },
+  n1ql: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-n1ql' */ 'prismjs/components/prism-n1ql'
+    );
+  },
   n4js: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-n4js' */ 'prismjs/components/prism-n4js'
     );
   },
+  'nand2tetris-hdl': () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-nand2tetris-hdl' */ 'prismjs/components/prism-nand2tetris-hdl'
+    );
+  },
   nasm: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-nasm' */ 'prismjs/components/prism-nasm'
+    );
+  },
+  neon: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-neon' */ 'prismjs/components/prism-neon'
     );
   },
   nginx: () => {
@@ -496,9 +659,24 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-pascal' */ 'prismjs/components/prism-pascal'
     );
   },
+  pascaligo: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-pascaligo' */ 'prismjs/components/prism-pascaligo'
+    );
+  },
+  pcaxis: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-pcaxis' */ 'prismjs/components/prism-pcaxis'
+    );
+  },
   perl: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-perl' */ 'prismjs/components/prism-perl'
+    );
+  },
+  'php-extras': () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-php-extras' */ 'prismjs/components/prism-php-extras'
     );
   },
   php: () => {
@@ -506,9 +684,9 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-php' */ 'prismjs/components/prism-php'
     );
   },
-  'php-extras': () => {
+  phpdoc: () => {
     return import(
-      /* webpackChunkName: 'codeblock/language.prism-php-extras' */ 'prismjs/components/prism-php-extras'
+      /* webpackChunkName: 'codeblock/language.prism-phpdoc' */ 'prismjs/components/prism-phpdoc'
     );
   },
   plsql: () => {
@@ -566,6 +744,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-q' */ 'prismjs/components/prism-q'
     );
   },
+  qml: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-qml' */ 'prismjs/components/prism-qml'
+    );
+  },
   qore: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-qore' */ 'prismjs/components/prism-qore'
@@ -579,6 +762,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
   reason: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-reason' */ 'prismjs/components/prism-reason'
+    );
+  },
+  regex: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-regex' */ 'prismjs/components/prism-regex'
     );
   },
   renpy: () => {
@@ -599,6 +787,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
   roboconf: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-roboconf' */ 'prismjs/components/prism-roboconf'
+    );
+  },
+  robotframework: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-robotframework' */ 'prismjs/components/prism-robotframework'
     );
   },
   ruby: () => {
@@ -636,6 +829,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-scss' */ 'prismjs/components/prism-scss'
     );
   },
+  'shell-session': () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-shell-session' */ 'prismjs/components/prism-shell-session'
+    );
+  },
   smalltalk: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-smalltalk' */ 'prismjs/components/prism-smalltalk'
@@ -646,9 +844,29 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-smarty' */ 'prismjs/components/prism-smarty'
     );
   },
+  solidity: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-solidity' */ 'prismjs/components/prism-solidity'
+    );
+  },
   soy: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-soy' */ 'prismjs/components/prism-soy'
+    );
+  },
+  sparql: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-sparql' */ 'prismjs/components/prism-sparql'
+    );
+  },
+  'splunk-spl': () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-splunk-spl' */ 'prismjs/components/prism-splunk-spl'
+    );
+  },
+  sqf: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-sqf' */ 'prismjs/components/prism-sqf'
     );
   },
   sql: () => {
@@ -666,6 +884,21 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-swift' */ 'prismjs/components/prism-swift'
     );
   },
+  't4-cs': () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-t4-cs' */ 'prismjs/components/prism-t4-cs'
+    );
+  },
+  't4-templating': () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-t4-templating' */ 'prismjs/components/prism-t4-templating'
+    );
+  },
+  't4-vb': () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-t4-vb' */ 'prismjs/components/prism-t4-vb'
+    );
+  },
   tap: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-tap' */ 'prismjs/components/prism-tap'
@@ -681,6 +914,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-textile' */ 'prismjs/components/prism-textile'
     );
   },
+  toml: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-toml' */ 'prismjs/components/prism-toml'
+    );
+  },
   tsx: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-tsx' */ 'prismjs/components/prism-tsx'
@@ -691,6 +929,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
       /* webpackChunkName: 'codeblock/language.prism-tt2' */ 'prismjs/components/prism-tt2'
     );
   },
+  turtle: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-turtle' */ 'prismjs/components/prism-turtle'
+    );
+  },
   twig: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-twig' */ 'prismjs/components/prism-twig'
@@ -699,6 +942,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
   typescript: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-typescript' */ 'prismjs/components/prism-typescript'
+    );
+  },
+  vala: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-vala' */ 'prismjs/components/prism-vala'
     );
   },
   vbnet: () => {
@@ -759,6 +1007,11 @@ export const asyncLanguageProvider: PrismLanguageProvider = {
   yaml: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-yaml' */ 'prismjs/components/prism-yaml'
+    );
+  },
+  zig: () => {
+    return import(
+      /* webpackChunkName: 'codeblock/language.prism-zig' */ 'prismjs/components/prism-zig'
     );
   }
 };

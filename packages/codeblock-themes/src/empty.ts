@@ -1,6 +1,4 @@
-import { PrismThemeProvider } from '@codeblock/core/types';
-
-export const emptyThemeProvider: PrismThemeProvider = {
+export default {
   coy: () => null,
   dark: () => null,
   funky: () => null,

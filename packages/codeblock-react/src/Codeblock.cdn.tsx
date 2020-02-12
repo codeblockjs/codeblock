@@ -1,30 +1,16 @@
 import React from 'react';
 import { ProviderConfig } from '@codeblock/core/types';
 
-import { httpLanguageProvider } from '@codeblock/core/lib/providers/language-provider-http';
-import { staticThemeProvider } from '@codeblock/styled/lib/providers/theme-provider-static';
-
 import { CodeblockProps } from './types';
 import { CodeblockHTTP } from './Codeblock.http';
 
-import { cdnLanguagesPath } from '@codeblock/core/lib/utils/autoloader';
-
-export const httpProviders: ProviderConfig = {
-  languages: httpLanguageProvider,
-  themes: staticThemeProvider
-};
+import { CDN_AUTOLOAD_PATH } from '@codeblock/core';
 
 export const CodeblockCDN = ({
-  languagesPath = cdnLanguagesPath,
+  prismPath = CDN_AUTOLOAD_PATH,
   ...props
-}: CodeblockProps & { languagesPath?: string }) => {
-  return (
-    <CodeblockHTTP
-      languagesPath={languagesPath}
-      providers={httpProviders}
-      {...props}
-    />
-  );
+}: CodeblockProps & { prismPath?: string }) => {
+  return <CodeblockHTTP prismPath={prismPath} {...props} />;
 };
 
 export default CodeblockCDN;

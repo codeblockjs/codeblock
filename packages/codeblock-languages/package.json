@@ -1,11 +1,10 @@
 {
-  "name": "@codeblock/core",
+  "name": "@codeblock/languages",
   "version": "0.0.2",
-  "main": "lib/index.js",
+  "main": "",
   "license": "MIT",
   "files": [
-    "lib",
-    "types.d.ts"
+    "lib"
   ],
   "publishConfig": {
     "access": "public"
@@ -13,12 +12,12 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "clean": "rm -rf .tsbuildinfo && rm -rf lib",
+    "clean": "rm -rf lib && rm -rf .tsbuildinfo",
     "rebuild": "yarn clean && yarn build",
     "prepublishOnly": "yarn rebuild"
   },
+  "peerDependencies": {},
   "dependencies": {
-    "prismjs": "1.19.0"
-  },
-  "devDependencies": {}
+    "@codeblock/core": "^0.0.2"
+  }
 }

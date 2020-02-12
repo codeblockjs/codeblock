@@ -1,10 +1,10 @@
-export const availableThemes = [
+export default [
   'coy',
   'dark',
   'funky',
   'okaidia',
-  'prism',
   'solarizedlight',
   'tomorrow',
-  'twilight'
+  'twilight',
+  'prism'
 ] as const;

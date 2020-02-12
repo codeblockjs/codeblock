@@ -1,1 +1,1 @@
-export * from './Codeblock.cdn';
+export * from './Codeblock.static';

@@ -40,7 +40,8 @@ module.exports = ({ config }) => {
           ],
           include: [
             path.resolve(__dirname, '../packages'),
-            path.resolve(__dirname, '../node_modules/prismjs/themes')
+            path.resolve(__dirname, '../node_modules/prismjs/themes'),
+            path.resolve(__dirname, '../node_modules/@codeblock/themes/lib')
           ]
         }
       ]

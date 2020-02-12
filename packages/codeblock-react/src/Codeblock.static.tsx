@@ -1,8 +1,8 @@
 import React from 'react';
 import { ProviderConfig } from '@codeblock/core/types';
 
-import { staticLanguageProvider } from '@codeblock/core/lib/providers/language-provider-static';
-import { staticThemeProvider } from '@codeblock/styled/lib/providers/theme-provider-static';
+import staticLanguageProvider from '@codeblock/languages/lib/static';
+import staticThemeProvider from '@codeblock/themes/lib/static';
 
 import { Codeblock } from './Codeblock';
 import { CodeblockProps } from './types';

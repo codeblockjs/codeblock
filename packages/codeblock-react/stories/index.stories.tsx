@@ -2,8 +2,8 @@ import React from 'react';
 
 import { button, select } from '@storybook/addon-knobs';
 
-import readLocalFiles from '@loopmode/read-local-files';
 import { availableLanguages, availableThemes } from '@codeblock/core';
+import readLocalFiles from '@loopmode/read-local-files';
 
 async function readLocalFile(): Promise<string> {
   try {

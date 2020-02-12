@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "@codeblock/core": "^0.0.2",
-    "@codeblock/styled": "^0.0.2",
+    "@codeblock/languages": "^0.0.2",
+    "@codeblock/themes": "^0.0.2",
     "classnames": "^2.2.6"
   },
   "devDependencies": {

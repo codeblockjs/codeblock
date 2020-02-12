@@ -2,7 +2,7 @@ import { Prism } from '../prism';
 
 import { ApplyPrismOptions, PrismLanguage } from '../types';
 import { detectLanguages } from './detect-languages';
-import { getLanguagesPath } from './autoloader';
+import { getAutoloadPath } from '../autoload';
 
 const log = {
   warn: (...args: any[]) => {
@@ -63,7 +63,7 @@ async function applyPrismLanguage(
     return;
   }
 
-  if (!getLanguagesPath()) {
+  if (!getAutoloadPath()) {
     try {
       await options.providers.languages[language]();
     } catch (error) {

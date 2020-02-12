@@ -1,9 +1,0 @@
-{
-  // "comments": true,
-  "presets": [
-    "@babel/typescript",
-    ["@babel/env", { "modules": false }],
-    "@babel/react"
-  ],
-  "plugins": ["macros", "@babel/plugin-syntax-dynamic-import"]
-}

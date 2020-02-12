@@ -1,8 +1,12 @@
 import cx from 'classnames';
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
+import {
+  getLanguageClassName,
+  getThemeClassName,
+  applyPrism
+} from '@codeblock/core';
 import { CodeblockOptions, CodeblockProps } from './types';
-import { getLanguageClassName, applyPrism } from '@codeblock/core';
 
 export function Codeblock({
   className,
@@ -11,13 +15,21 @@ export function Codeblock({
   theme,
   language,
   innerProps,
+  as: Component = 'div',
   ...props
-}: CodeblockProps): JSX.Element {
+}: CodeblockProps & {
+  as?: string | ((props: HTMLAttributes<HTMLDivElement>) => JSX.Element);
+}): JSX.Element {
   const options = { providers, theme, language };
-  const ThemeContainer = useThemeContainer(options);
+  useThemeLoader(options);
   const applyPrismCallback = useApplyPrism(options);
   return (
-    <ThemeContainer className={cx('Codeblock', className)} {...props}>
+    <Component
+      {...props}
+      className={cx('Codeblock', className, {
+        [getThemeClassName(theme)]: theme
+      })}
+    >
       <pre
         {...innerProps}
         ref={applyPrismCallback}
@@ -27,10 +39,20 @@ export function Codeblock({
       >
         {children}
       </pre>
-    </ThemeContainer>
+    </Component>
   );
 }
 
+function useThemeLoader(props: CodeblockOptions): void {
+  React.useEffect(() => {
+    (async () => {
+      const themeLoader = props.providers.themes[props.theme];
+      if (typeof themeLoader === 'function') {
+        await themeLoader();
+      }
+    })();
+  }, [props.theme]);
+}
 function useApplyPrism(props: CodeblockOptions): (node: any) => void {
   return React.useCallback(
     node => {
@@ -46,25 +68,3 @@ function useApplyPrism(props: CodeblockOptions): (node: any) => void {
     [props.language]
   );
 }
-
-function useThemeContainer(props: CodeblockOptions): ThemeContainerType {
-  const [Container, setContainer] = React.useState<ThemeContainerType>('div');
-  React.useEffect(() => {
-    (async () => {
-      if (props.theme) {
-        const themeLoader = props.providers.themes[props.theme];
-        console.log({ themeLoader });
-        const { default: ThemeRenderer } = await themeLoader();
-        setContainer(ThemeRenderer);
-      } else {
-        setContainer('div');
-      }
-    })();
-  }, [props.theme]);
-
-  return Container;
-}
-
-type ThemeContainerType =
-  | string
-  | React.FC<React.HTMLAttributes<HTMLDivElement>>;

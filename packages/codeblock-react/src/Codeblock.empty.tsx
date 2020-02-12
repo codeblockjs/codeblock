@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { ProviderConfig } from '@codeblock/core/types';
-import { emptyLanguageProvider } from '@codeblock/core/lib/providers/language-provider-empty';
-import { emptyThemeProvider } from '@codeblock/styled/lib/providers/theme-provider-empty';
+
+import emptyLanguageProvider from '@codeblock/languages/lib/empty';
+import emptyThemeProvider from '@codeblock/themes/lib/empty';
 
 import { Codeblock } from './Codeblock';
 import { CodeblockProps } from './types';

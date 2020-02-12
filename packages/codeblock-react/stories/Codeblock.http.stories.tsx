@@ -26,7 +26,8 @@ export const Local = () => {
       </ul>
       <CodeblockStoryExample
         codeblockRenderer={props => (
-          <CodeblockHTTP languagesPath={'./prism/languages/'} {...props} />
+          /** served via storybook --static-dir */
+          <CodeblockHTTP prismPath={'/prismjs/'} {...props} />
         )}
         initialContent={raw('../src/Codeblock.http.tsx')}
       />
