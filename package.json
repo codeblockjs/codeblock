@@ -21,7 +21,7 @@
     "watch": "yarn lerna run watch --stream --parallel",
     "start": "start-storybook -s .storybook/public -p 9000",
     "build-storybook": "build-storybook -s .storybook/public",
-    "deploy-storybook": "yarn build-storybook && sh ./deploy-storybook.sh"
+    "deploy": "sh ./deploy-storybook.sh"
   },
   "devDependencies": {
     "@loopmode/read-local-files": "^2.0.0",
