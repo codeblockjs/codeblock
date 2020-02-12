@@ -8,7 +8,7 @@ import asyncThemeProvider from '@codeblock/themes/lib/async';
 import { Codeblock } from './Codeblock';
 import { CodeblockProps } from './types';
 
-const asyncProviderConfig: ProviderConfig = {
+export const asyncProviderConfig: ProviderConfig = {
   themes: asyncThemeProvider,
   languages: asyncLanguageProvider
 };

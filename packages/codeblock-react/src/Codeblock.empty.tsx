@@ -9,7 +9,7 @@ import emptyThemeProvider from '@codeblock/themes/lib/empty';
 import { Codeblock } from './Codeblock';
 import { CodeblockProps } from './types';
 
-const emptyProviderConfig: ProviderConfig = {
+export const emptyProviderConfig: ProviderConfig = {
   themes: emptyThemeProvider,
   languages: emptyLanguageProvider
 };

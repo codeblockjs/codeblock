@@ -10,6 +10,9 @@ export const CDN_AUTOLOAD_PATH =
 export const getAutoloadPath = () => currentAutoloadPath;
 
 export const setAutoloadPath = async (url: string) => {
+  if (!url) {
+    return;
+  }
   currentAutoloadPath = url;
   if (Prism.plugins.autoloader) {
     Prism.plugins.autoloader.languages_path = `${url}components/`;
