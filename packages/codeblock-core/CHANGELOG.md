@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/codeblockjs/codeblock/compare/@codeblock/core@2.0.0...@codeblock/core@2.0.1) (2020-02-12)
+
+
+### Bug Fixes
+
+* detect languages in nested children ([b1c3cc9](https://github.com/codeblockjs/codeblock/commit/b1c3cc989c4f5fd81b1d98e8d0b7966d02b87134))
+
+
+
+
+
 # 2.0.0 (2020-02-12)
 
 

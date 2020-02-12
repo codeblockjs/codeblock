@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/codeblockjs/codeblock/compare/@codeblock/themes@2.0.0...@codeblock/themes@2.0.1) (2020-02-12)
+
+
+### Bug Fixes
+
+* **funky:** Repair broken background image after prefixing, workaround for https://github.com/jotform/css.js/issues/28 ([3f8597f](https://github.com/codeblockjs/codeblock/commit/3f8597f8a10207e75243294434d37418dbd278b8))
+
+
+
+
+
 # 2.0.0 (2020-02-12)
 
 

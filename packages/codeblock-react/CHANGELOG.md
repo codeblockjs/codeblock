@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.0.0...@codeblock/react@2.1.0) (2020-02-12)
+
+
+### Features
+
+* expose useCodeblock hook, add isContainer flag ([a715ee9](https://github.com/codeblockjs/codeblock/commit/a715ee9a425deef93f6bccc05ec2212f758da463))
+
+
+
+
+
 # 2.0.0 (2020-02-12)
 
 
