@@ -17,7 +17,13 @@
     "highlighting"
   ],
   "files": [
-    "lib"
+    "lib",
+    "async.js",
+    "cdn.js",
+    "empty.js",
+    "hooks.js",
+    "http.js",
+    "static.js"
   ],
   "publishConfig": {
     "access": "public"
