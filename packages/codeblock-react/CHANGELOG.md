@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.1.0...@codeblock/react@2.1.1) (2020-02-12)
+
+
+### Bug Fixes
+
+* add default export ([5b6eb00](https://github.com/codeblockjs/codeblock/commit/5b6eb00e318fbce8984d810aab7ba4c7d1ed908e))
+
+
+
+
+
 # [2.1.0](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.0.0...@codeblock/react@2.1.0) (2020-02-12)
 
 
