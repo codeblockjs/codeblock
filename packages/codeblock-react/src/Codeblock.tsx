@@ -9,7 +9,7 @@ export function Codeblock({
   className,
   providers,
   children,
-  theme,
+  theme = 'okaidia',
   language,
   innerProps,
   isContainer,
