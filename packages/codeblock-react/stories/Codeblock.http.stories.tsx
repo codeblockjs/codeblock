@@ -29,7 +29,7 @@ export const Local = () => {
           /** served via storybook --static-dir */
           <CodeblockHTTP prismPath={'/prismjs/'} {...props} />
         )}
-        initialContent={raw('../src/Codeblock.http.tsx')}
+        children={raw('../src/Codeblock.http.tsx')}
       />
     </div>
   );

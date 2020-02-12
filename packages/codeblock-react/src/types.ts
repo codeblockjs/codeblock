@@ -15,6 +15,7 @@ export interface CodeblockOptions extends Omit<ApplyPrismOptions, 'providers'> {
 }
 
 export type CodeblockProps = CodeblockOptions & {
+  isContainer?: boolean;
   children?: React.ReactChild | React.ReactChild[];
   innerProps?: React.HTMLAttributes<HTMLPreElement>;
 } & Omit<HTMLAttributes<HTMLDivElement>, 'onError'>;

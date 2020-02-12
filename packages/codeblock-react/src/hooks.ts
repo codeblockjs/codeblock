@@ -2,6 +2,17 @@ import React from 'react';
 import { applyPrism } from '@codeblock/core';
 import { CodeblockOptions } from './types';
 
+export type UseCodeblockResult = {
+  applyCodeblock: (node: HTMLElement) => void;
+};
+
+export function useCodeblock(props: CodeblockOptions): UseCodeblockResult {
+  useThemeLoader(props);
+  const refCallback = useApplyPrism(props);
+
+  return { applyCodeblock: refCallback };
+}
+
 export function useThemeLoader(props: CodeblockOptions): void {
   React.useEffect(() => {
     (async () => {
@@ -12,18 +23,30 @@ export function useThemeLoader(props: CodeblockOptions): void {
     })();
   }, [props.theme]);
 }
-export function useApplyPrism(props: CodeblockOptions): (node: any) => void {
+
+export function useApplyPrism(
+  props: CodeblockOptions
+): (node: HTMLElement) => void {
   return React.useCallback(
     node => {
       if (node !== null) {
         applyPrism(node, {
-          providers: props.providers,
           async: props.async,
           onHighlight: props.onHighlight,
-          parallel: props.parallel
+          onHighlightError: props.onHighlightError,
+          parallel: props.parallel,
+          providers: props.providers
         });
       }
     },
-    [props.language]
+    [
+      props.language,
+      props.theme,
+      props.async,
+      props.onHighlight,
+      props.onHighlightError,
+      props.parallel,
+      props.providers
+    ]
   );
 }

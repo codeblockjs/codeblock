@@ -15,11 +15,11 @@ async function readLocalFile(): Promise<string> {
   }
 }
 
-export const CodeblockStoryExample = ({
-  codeblockRenderer: CodeblockRenderer,
-  initialContent = ''
-}) => {
-  const [content, setContent] = React.useState<string>(initialContent);
+export const CodeblockStoryExample: React.FC<{
+  codeblockRenderer: React.FC<any>;
+  isContainer?: boolean;
+}> = ({ codeblockRenderer: CodeblockRenderer, isContainer, children }) => {
+  const [content, setContent] = React.useState<any>(children);
 
   button('Load content file', async () =>
     setContent((await readLocalFile()) || content)
@@ -28,6 +28,7 @@ export const CodeblockStoryExample = ({
   return (
     <React.Suspense fallback={''}>
       <CodeblockRenderer
+        isContainer={isContainer}
         language={select('Language', ['', ...availableLanguages], 'jsx')}
         theme={select('Theme', ['', ...availableThemes], 'okaidia')}
       >

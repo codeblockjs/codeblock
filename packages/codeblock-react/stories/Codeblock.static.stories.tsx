@@ -22,7 +22,7 @@ export const Default = () => (
     </ul>
     <CodeblockStoryExample
       codeblockRenderer={CodeblockStatic}
-      initialContent={raw('../src/Codeblock.static.tsx')}
+      children={raw('../src/Codeblock.static.tsx')}
     />
   </div>
 );

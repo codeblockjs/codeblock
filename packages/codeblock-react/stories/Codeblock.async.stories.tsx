@@ -29,7 +29,7 @@ export const Default = () => (
     </ul>
     <CodeblockStoryExample
       codeblockRenderer={CodeblockAsync}
-      initialContent={raw('../src/Codeblock.async.tsx')}
+      children={raw('../src/Codeblock.async.tsx')}
     />
   </div>
 );

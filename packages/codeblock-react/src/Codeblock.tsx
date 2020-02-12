@@ -3,7 +3,7 @@ import React, { HTMLAttributes } from 'react';
 
 import { getLanguageClassName, getThemeClassName } from '@codeblock/core';
 import { CodeblockProps } from './types';
-import { useThemeLoader, useApplyPrism } from './hooks';
+import { useCodeblock } from './hooks';
 
 export function Codeblock({
   className,
@@ -12,30 +12,34 @@ export function Codeblock({
   theme,
   language,
   innerProps,
-  as: Component = 'div',
+  isContainer,
+  as: Wrapper = 'div',
   ...props
 }: CodeblockProps & {
-  as?: string | ((props: HTMLAttributes<HTMLDivElement>) => JSX.Element);
+  as?: keyof JSX.IntrinsicElements | ((p: any) => JSX.Element);
 }): JSX.Element {
-  const options = { providers, theme, language };
-  useThemeLoader(options);
-  const applyPrismCallback = useApplyPrism(options);
+  const { applyCodeblock } = useCodeblock({ providers, theme, language });
   return (
-    <Component
+    <Wrapper
       {...props}
+      ref={isContainer && applyCodeblock}
       className={cx('Codeblock', className, {
         [getThemeClassName(theme)]: theme
       })}
     >
-      <pre
-        {...innerProps}
-        ref={applyPrismCallback}
-        className={cx(innerProps?.className, {
-          [getLanguageClassName(language)]: language
-        })}
-      >
-        {children}
-      </pre>
-    </Component>
+      {isContainer ? (
+        children
+      ) : (
+        <pre
+          {...innerProps}
+          ref={applyCodeblock}
+          className={cx(innerProps?.className, {
+            [getLanguageClassName(language)]: language
+          })}
+        >
+          {children}
+        </pre>
+      )}
+    </Wrapper>
   );
 }

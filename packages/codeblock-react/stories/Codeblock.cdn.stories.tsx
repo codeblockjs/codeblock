@@ -15,7 +15,7 @@ export const CDN = () => {
       <p>Same as the HTTP example, but resources are loaded from a CDN.</p>
       <CodeblockStoryExample
         codeblockRenderer={CodeblockCDN}
-        initialContent={raw('../src/Codeblock.http.tsx')}
+        children={raw('../src/Codeblock.http.tsx')}
       />
     </div>
   );
