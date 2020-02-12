@@ -1,8 +1,20 @@
 {
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "packages": [
-    "packages/*"
-  ],
-  "version": "0.0.2"
+  "packages": ["packages/*"],
+  "version": "0.0.2",
+  "command": {
+    "version": {
+      "conventionalCommits": true,
+      "changelogPreset": "conventional-changelog-angular",
+      "message": "build: lerna version"
+    },
+    "publish": {
+      "conventionalCommits": true,
+      "npmClient": "npm",
+      "verifyAccess": false,
+      "changelogPreset": "conventional-changelog-angular",
+      "message": "build: lerna publish"
+    }
+  }
 }
