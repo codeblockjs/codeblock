@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/codeblockjs/codeblock/compare/v1.0.0...v1.0.1) (2020-02-12)
+
+
+### Bug Fixes
+
+* **autoloader:** do not unset the autoloader path when unmounting a http-component ([04dbc58](https://github.com/codeblockjs/codeblock/commit/04dbc5806c24fa58ac19e4818f4aa8e9669175ef))
+
+
+
+
+
 # [1.0.0](https://github.com/codeblockjs/codeblock/compare/v0.0.2...v1.0.0) (2020-02-12)
 
 
