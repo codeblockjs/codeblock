@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.1.1...@codeblock/react@2.1.2) (2020-02-12)
+
+
+### Bug Fixes
+
+* use default theme (okaidia) ([ae66873](https://github.com/codeblockjs/codeblock/commit/ae66873d3f763a95f3d26a4b676c96c8d8f2adc9))
+
+
+
+
+
 ## [2.1.1](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.1.0...@codeblock/react@2.1.1) (2020-02-12)
 
 
