@@ -1,4 +1,9 @@
+const fs = require('fs-extra');
 const path = require('path');
+
+const createPrismPublicResources = require('./prism-public');
+
+createPrismPublicResources();
 
 module.exports = {
   stories: ['../packages/**/(src|stories)/**/*.stories.tsx'],
