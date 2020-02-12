@@ -1,8 +1,21 @@
 {
   "name": "@codeblock/languages",
+  "description": "available prism languages for @codeblock packages",
   "version": "1.0.0",
   "main": "",
   "license": "MIT",
+  "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:codeblockjs/codeblock.git",
+    "directory": "packages/codeblock-languages"
+  },
+  "homepage": "https://github.com/codeblockjs/codeblock/tree/master/packages/codeblock-languages",
+  "keywords": [
+    "react",
+    "prism",
+    "highlighting"
+  ],
   "files": [
     "lib"
   ],

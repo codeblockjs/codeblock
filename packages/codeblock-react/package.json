@@ -1,8 +1,21 @@
 {
   "name": "@codeblock/react",
+  "description": "components for using @codeblock with react",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lib/index.js",
   "license": "MIT",
+  "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:codeblockjs/codeblock.git",
+    "directory": "packages/codeblock-react"
+  },
+  "homepage": "https://github.com/codeblockjs/codeblock/tree/master/packages/codeblock-react",
+  "keywords": [
+    "react",
+    "prism",
+    "highlighting"
+  ],
   "files": [
     "lib"
   ],
