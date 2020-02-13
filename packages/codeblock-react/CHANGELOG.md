@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.1.8...@codeblock/react@2.2.0) (2020-02-13)
+
+
+### Features
+
+* add useHTTPProvider hook ([f42e896](https://github.com/codeblockjs/codeblock/commit/f42e896307dd9caa583472d7e1339a0c81cad1c2))
+
+
+
+
+
 ## [2.1.8](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.1.7...@codeblock/react@2.1.8) (2020-02-13)
 
 **Note:** Version bump only for package @codeblock/react
