@@ -19,9 +19,6 @@ export const getAutoload = () => currentAutoloadPath;
  * @param url Location of prismjs, with trailing slash
  */
 export const setAutoload = async (url: string) => {
-  if (!url) {
-    return;
-  }
   currentAutoloadPath = url;
   if (Prism.plugins.autoloader) {
     Prism.plugins.autoloader.languages_path = `${url}components/`;
