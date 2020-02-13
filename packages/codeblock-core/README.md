@@ -57,7 +57,7 @@ const className = getThemeClassName('foo'); // ''
 const className = getThemeClassName(null); // ''
 ```
 
-### detectLanguages
+### getLanguageMap
 
 Detects all languages in the CSS class names of one or more given DOM elements and returns a `LanguageElementMap` (`{ [lang]: elements[...] }`), or an empty object if no languages are found.
 
@@ -67,8 +67,8 @@ If the given element
 - does have a language class itself, its children will be ignored
 
 ```js
-import { detectLanguages } from '@codeblock/core';
-const map = detectLanguages(document.body);
+import { getLanguageMap } from '@codeblock/core';
+const map = getLanguageMap(document.body);
 console.log(map);
 ```
 

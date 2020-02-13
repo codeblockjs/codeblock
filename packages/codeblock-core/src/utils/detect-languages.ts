@@ -10,9 +10,7 @@ export const languageRegExp: RegExp = /lang(uage)*-([a-z]*)/;
  * @param {HTMLElement[]} elements
  * @return a map of languages and elements
  */
-export function detectLanguages(
-  ...elements: HTMLElement[]
-): LanguageElementMap {
+export function getLanguageMap(...elements: HTMLElement[]): LanguageElementMap {
   const collectChildren = (result: LanguageElementMap, el: HTMLElement) => {
     const lang = getLanguage(el);
     if (lang) {

@@ -35,7 +35,7 @@ export async function applyPrism(
   }
 }
 
-async function highlight(
+export async function highlight(
   element: HTMLElement | HTMLElement[],
   language: PrismLanguage,
   options: ApplyPrismOptions,
