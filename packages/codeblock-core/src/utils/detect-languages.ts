@@ -4,15 +4,16 @@ export const languageSelector = '[class*="language-"], [class*="lang-"]';
 export const languageRegExp: RegExp = /lang(uage)*-([a-z]*)/;
 
 /**
- * Takes DOM elements and returns an object where each key of a property
- * is a detected language while the value is an array of elements with that language.
+ * Takes one or more DOM elements and returns a `{[lang]: elements[]}` object where
+ * each key is a detected language and each value is an array of the elements with that language.
  *
- * If given an
- *
- * @param {HTMLElement[]} els
+ * @param {HTMLElement[]} elements
+ * @return a map of languages and elements
  */
-export function detectLanguages(...els: HTMLElement[]): LanguageElementMap {
-  const walkChildren = (result: LanguageElementMap, el: HTMLElement) => {
+export function detectLanguages(
+  ...elements: HTMLElement[]
+): LanguageElementMap {
+  const collectChildren = (result: LanguageElementMap, el: HTMLElement) => {
     const lang = getLanguage(el);
     if (lang) {
       if (result[lang]) {
@@ -20,40 +21,35 @@ export function detectLanguages(...els: HTMLElement[]): LanguageElementMap {
       } else {
         result[lang] = [el];
       }
+      // when the element itself has a language, do not check for children
       return result;
     }
 
     const children = getChildrenWithLanguage(el);
     return children.reduce(
-      (result, child) => walkChildren(result, child),
+      (result, child) => collectChildren(result, child),
       result
     );
   };
-  return els.reduce((result, el) => {
-    result = walkChildren(result, el);
+  return elements.reduce((result, el) => {
+    result = collectChildren(result, el);
     return result;
   }, {});
 }
 
 /**
- * Queries a list of child elements that contain `language-*` in their CSS class.
+ * Finds an element's children that have a `language-*` CSS class
  * @param element
+ * @return array of child elements
  */
 export function getChildrenWithLanguage(element: HTMLElement): HTMLElement[] {
   return Array.from(element.querySelectorAll(languageSelector));
 }
 
 /**
- * Returns a list of unique languages found in the CSS classes of the given DOM elements.
- * @param elements
- */
-export function getLanguages(elements: HTMLElement[]): PrismLanguage[] {
-  return Object.keys(detectLanguages(...elements)) as PrismLanguage[];
-}
-
-/**
- * Returns the prism language defined in the CSS class of a given DOM element.
+ * Returns the prism language from an element's CSS class or `null`.
  * @param element the DOM element
+ * @return the prism language or `null`.
  */
 export function getLanguage(element: HTMLElement): PrismLanguage | null {
   const matches = element.className.match(languageRegExp);

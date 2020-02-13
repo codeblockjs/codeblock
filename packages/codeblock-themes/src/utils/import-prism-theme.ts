@@ -33,3 +33,5 @@ export async function importPrismTheme(
 
   return el;
 }
+
+export default importPrismTheme;

@@ -1,7 +1,9 @@
-import { getAutoloadPath } from '@codeblock/core/lib/autoload';
 import { importPrismTheme } from './import-prism-theme';
+import { PrismThemeProvider } from '@codeblock/core/lib/types';
 
-export const createHttpThemeProvider = (prismPath: string) => {
+export const createHttpThemeProvider = (
+  prismPath: string
+): PrismThemeProvider => {
   return {
     coy: () => {
       return importPrismTheme('coy', prismPath);
@@ -29,3 +31,5 @@ export const createHttpThemeProvider = (prismPath: string) => {
     }
   };
 };
+
+export default createHttpThemeProvider;

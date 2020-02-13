@@ -1,4 +1,6 @@
-export default {
+import { PrismLanguageProvider } from '@codeblock/core/types';
+
+const emptyLanguages: PrismLanguageProvider = {
   abap: () => null,
   abnf: () => null,
   actionscript: () => null,
@@ -203,3 +205,5 @@ export default {
   yaml: () => null,
   zig: () => null
 };
+
+export default emptyLanguages;

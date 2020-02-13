@@ -33,12 +33,14 @@ export interface ApplyPrismOptions {
    * See https://prismjs.com/extending.html#api
    */
   async?: boolean;
+
   /**
-   * A callback to be invoked after highlighting is done. Receives the highlighted element.
-   *
-   * Note that when in `container` mode, this is invoked once for each detected language.
+   * Optional callback invoked after highlighting was applied on an element
    */
   onHighlight?: Prism.HighlightCallback;
 
+  /**
+   * Optional callback invoked after an error happen during highlighting an element
+   */
   onHighlightError?: (error: Error) => void;
 }

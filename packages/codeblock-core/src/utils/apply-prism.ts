@@ -4,40 +4,27 @@ import { ApplyPrismOptions, PrismLanguage } from '../types';
 import { detectLanguages } from './detect-languages';
 import { getAutoloadPath } from '../autoload';
 
-const log = {
-  warn: (...args: any[]) => {
-    if (process.env.NODE_ENV !== 'production') {
-      console.warn(...args);
-    }
-  },
-  error: (...args: any[]) => {
-    if (process.env.NODE_ENV !== 'production') {
-      console.error(...args);
-    }
-  }
-};
 /**
- * Async function that loads and applies prism.
+ * Async function that applies prism highlighting to a given element and its children.
+ * Returns a promise that is resolved when the operation is complete.
  *
  * @param {Object} element The target DOM element
  * @param {Object} options Options object
- * @param {Function} [options.prism] Required - a reference to the prismjs module itself
- * @param {String} [options.language] Name of the prism language to load
- * @param {String} [options.theme] Name of the prism theme to load
- * @param {Boolean} [options.container] Whether to treat the element as a container
- * @param {Boolean} [options.async] Whether to use a web worker for parsing the code
- * @param {Function} [options.onHighlight] Optional callback invoked after the highlighting is done
+ * @param {Boolean} [options.parallel] When multiple languages were detected: Whether to load and apply all languages in parallel
+ * @param {Boolean} [options.async] Whether to use Web Workers for async highlighting. See https://prismjs.com/extending.html#api
+ * @param {Function} [options.onHighlight] Optional callback invoked after highlighting was applied on an element
+ * @param {Function} [options.onHighlightError] Optional callback invoked after an error happen during highlighting an element
  */
 export async function applyPrism(
   element: HTMLElement,
   options: ApplyPrismOptions
-) {
+): Promise<void> {
   const languageMap = detectLanguages(element);
   const languages = Object.keys(languageMap) as PrismLanguage[];
 
   const isMounted = () => !!element;
   const run = (language: PrismLanguage) =>
-    applyPrismLanguage(language, languageMap[language], options, isMounted);
+    highlight(languageMap[language], language, options, isMounted);
 
   if (options.parallel) {
     await Promise.all(languages.map(language => run(language)));
@@ -48,9 +35,9 @@ export async function applyPrism(
   }
 }
 
-async function applyPrismLanguage(
-  language: PrismLanguage,
+async function highlight(
   element: HTMLElement | HTMLElement[],
+  language: PrismLanguage,
   options: ApplyPrismOptions,
   isMounted: () => boolean
 ) {
@@ -59,7 +46,8 @@ async function applyPrismLanguage(
   }
 
   if (typeof options.providers.languages[language] !== 'function') {
-    log.warn('>> Unsupported language', language);
+    process.env.NODE_ENV !== 'production' &&
+      console.warn('[apply-prism] provider not found:', language);
     return;
   }
 
@@ -67,8 +55,9 @@ async function applyPrismLanguage(
     try {
       await options.providers.languages[language]();
     } catch (error) {
-      log.error('>> failed loading', { language, error });
-      options?.onHighlightError?.(error);
+      process.env.NODE_ENV !== 'production' &&
+        console.error('[apply-prism] failed loading:', language, error);
+      options.onHighlightError?.(error);
       return;
     }
   }
@@ -81,8 +70,9 @@ async function applyPrismLanguage(
       try {
         Prism.highlightElement(element, options.async, options.onHighlight);
       } catch (error) {
-        log.error('>> failed highlighting', { language, element, error });
-        options?.onHighlightError(error);
+        process.env.NODE_ENV !== 'production' &&
+          console.error('[apply-prism] failed:', language, element, error);
+        options.onHighlightError?.(error);
       }
     });
   }
