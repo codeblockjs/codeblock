@@ -26,7 +26,10 @@ export async function importPrismTheme(
 
   const fileName = name === 'prism' ? 'prism.css' : `prism-${name}.css`;
 
-  const url = `${basePath}/themes/${fileName}`.replace(/\/\//g, '/');
+  const url = `${basePath}/themes/${fileName}`.replace(
+    /(https?:\/\/)|(\/){2,}/g,
+    '$1$2'
+  );
   const source = await fetch(url).then(response => response.text());
 
   el.innerHTML = addPrefix(source, name);
