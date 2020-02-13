@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/codeblockjs/codeblock/compare/@codeblock/themes@2.0.3...@codeblock/themes@2.0.4) (2020-02-13)
+
+
+### Bug Fixes
+
+* **utils:** do not break URLs when replacing double slashes ([88bb398](https://github.com/codeblockjs/codeblock/commit/88bb398303e86d3ff619c000ee2191ed39ed6477))
+
+
+
+
+
 ## [2.0.3](https://github.com/codeblockjs/codeblock/compare/@codeblock/themes@2.0.2...@codeblock/themes@2.0.3) (2020-02-13)
 
 **Note:** Version bump only for package @codeblock/themes

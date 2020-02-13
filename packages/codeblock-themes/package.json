@@ -1,7 +1,7 @@
 {
   "name": "@codeblock/themes",
   "description": "available prism themes and functionality for @codeblock packages",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "main": "",
   "license": "MIT",
   "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",
