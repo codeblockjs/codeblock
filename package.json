@@ -20,7 +20,7 @@
     "clean": "rm -rf node_modules/.cache && rm -rf storybook-static && yarn lerna run clean --stream",
     "rebuild": "yarn clean && yarn build",
     "watch": "yarn lerna run watch --stream --parallel",
-    "start": "start-storybook -s .storybook/public -p 9000",
+    "start": "start-storybook -s .storybook/public",
     "build-storybook": "build-storybook -s .storybook/public",
     "deploy": "sh ./deploy-storybook.sh"
   },
@@ -42,6 +42,7 @@
     "fs-extra": "^8.1.0",
     "jest": "^25.1.0",
     "lerna": "^3.20.2",
+    "portfinder": "^1.0.25",
     "raw.macro": "^0.3.0",
     "react-docgen-typescript-loader": "^3.6.0",
     "react-dom": "^16.12.0",
