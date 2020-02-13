@@ -6,8 +6,8 @@ import { CodeblockStoryExample } from './index.stories';
 
 const CodeblockAsync = React.lazy(() => import('../src/Codeblock.async'));
 
-export default { title: 'Codeblock.async', decorators: [withKnobs] };
-export const Default = () => (
+export default { title: 'Codeblock.react', decorators: [withKnobs] };
+export const With_AsyncProvider = () => (
   <div>
     <h3>async</h3>
     <p>

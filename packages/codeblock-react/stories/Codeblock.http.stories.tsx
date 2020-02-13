@@ -4,11 +4,11 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import { CodeblockStoryExample } from './index.stories';
 
-export default { title: 'Codeblock.http', decorators: [withKnobs] };
+export default { title: 'Codeblock.react', decorators: [withKnobs] };
 
 const CodeblockHTTP = React.lazy(() => import('../src/Codeblock.http'));
 
-export const Local = () => {
+export const With_HTTP_Provider = () => {
   return (
     <div>
       <h3>HTTP</h3>

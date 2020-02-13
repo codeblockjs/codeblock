@@ -4,11 +4,11 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import { CodeblockStoryExample } from './index.stories';
 
-export default { title: 'Codeblock.http', decorators: [withKnobs] };
+export default { title: 'Codeblock.react', decorators: [withKnobs] };
 
 const CodeblockCDN = React.lazy(() => import('../src/Codeblock.cdn'));
 
-export const CDN = () => {
+export const With_CDN_Provider = () => {
   return (
     <div>
       <h3>HTTP - CDN</h3>

@@ -4,11 +4,11 @@ import raw from 'raw.macro';
 import { withKnobs } from '@storybook/addon-knobs';
 
 import { CodeblockStoryExample } from './index.stories';
-export default { title: 'Codeblock.static', decorators: [withKnobs] };
+export default { title: 'Codeblock.react', decorators: [withKnobs] };
 
 const CodeblockStatic = React.lazy(() => import('../src/Codeblock.static'));
 
-export const Default = () => (
+export const WithStaticProvider = () => (
   <div>
     <h3>static</h3>
     <p>
