@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/codeblockjs/codeblock/compare/@codeblock/core@2.0.4...@codeblock/core@2.0.5) (2020-02-13)
+
+
+### Bug Fixes
+
+* do not set invalid autoload url ([09003bc](https://github.com/codeblockjs/codeblock/commit/09003bcb3f722bcf4f5848a44a053b02a4627720))
+
+
+
+
+
 ## [2.0.4](https://github.com/codeblockjs/codeblock/compare/@codeblock/core@2.0.3...@codeblock/core@2.0.4) (2020-02-13)
 
 

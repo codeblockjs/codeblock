@@ -1,7 +1,7 @@
 {
   "name": "@codeblock/react",
   "description": "components for using @codeblock with react",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "main": "lib/index.js",
   "license": "MIT",
   "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",
@@ -39,9 +39,9 @@
     "react": ">=16.8.6"
   },
   "dependencies": {
-    "@codeblock/core": "^2.0.4",
-    "@codeblock/languages": "^2.0.5",
-    "@codeblock/themes": "^2.0.5",
+    "@codeblock/core": "^2.0.5",
+    "@codeblock/languages": "^2.0.6",
+    "@codeblock/themes": "^2.0.6",
     "classnames": "^2.2.6"
   },
   "devDependencies": {

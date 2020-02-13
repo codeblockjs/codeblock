@@ -1,7 +1,7 @@
 {
   "name": "@codeblock/core",
   "description": "core dependencies and functionality for @codeblock packages",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "main": "lib/index.js",
   "license": "MIT",
   "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",

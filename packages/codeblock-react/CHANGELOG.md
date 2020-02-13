@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.8](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.1.7...@codeblock/react@2.1.8) (2020-02-13)
+
+**Note:** Version bump only for package @codeblock/react
+
+
+
+
+
 ## [2.1.7](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.1.6...@codeblock/react@2.1.7) (2020-02-13)
 
 **Note:** Version bump only for package @codeblock/react
