@@ -19,10 +19,30 @@ export function Codeblock({
   as?: keyof JSX.IntrinsicElements | ((p: any) => JSX.Element);
 }): JSX.Element {
   const { applyCodeblock } = useCodeblock({ providers, theme, language });
+
+  const doneRef = React.useRef<boolean>(false);
+  const elementRef = React.useRef<HTMLElement>(null);
+  const shouldInitialize: boolean = !!(
+    !doneRef.current &&
+    applyCodeblock &&
+    providers
+  );
+
+  const elementRefCallback = React.useCallback(
+    (element: HTMLElement) => {
+      elementRef.current = element;
+      if (shouldInitialize) {
+        doneRef.current = true;
+        applyCodeblock(elementRef.current);
+      }
+    },
+    [shouldInitialize]
+  );
+
   return (
     <Wrapper
       {...props}
-      ref={isContainer && applyCodeblock}
+      ref={isContainer && elementRefCallback}
       className={cx('Codeblock', className, {
         [getThemeClassName(theme)]: theme
       })}
@@ -32,7 +52,7 @@ export function Codeblock({
       ) : (
         <pre
           {...innerProps}
-          ref={applyCodeblock}
+          ref={elementRefCallback}
           className={cx(innerProps?.className, {
             [getLanguageClassName(language)]: language
           })}
