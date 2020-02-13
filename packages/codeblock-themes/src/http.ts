@@ -1,4 +1,4 @@
-import { getAutoloadPath } from '@codeblock/core/lib/autoload';
+import { getAutoload } from '@codeblock/core/lib/autoload';
 import { importPrismTheme } from './utils/import-prism-theme';
 
 const createHttpProvider = (prismPath: string) => {
@@ -29,4 +29,4 @@ const createHttpProvider = (prismPath: string) => {
     }
   };
 };
-export default createHttpProvider(getAutoloadPath());
+export default createHttpProvider(getAutoload());

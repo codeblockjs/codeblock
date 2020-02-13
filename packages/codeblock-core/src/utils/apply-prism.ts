@@ -1,8 +1,8 @@
 import { Prism } from '../prism';
 
 import { ApplyPrismOptions, PrismLanguage } from '../types';
-import { detectLanguages } from './detect-languages';
-import { getAutoloadPath } from '../autoload';
+import { getLanguageMap } from './detect-languages';
+import { getAutoload } from '../autoload';
 
 /**
  * Async function that applies prism highlighting to a given element and its children.
@@ -19,7 +19,7 @@ export async function applyPrism(
   element: HTMLElement,
   options: ApplyPrismOptions
 ): Promise<void> {
-  const languageMap = detectLanguages(element);
+  const languageMap = getLanguageMap(element);
   const languages = Object.keys(languageMap) as PrismLanguage[];
 
   const isMounted = () => !!element;
@@ -51,7 +51,7 @@ export async function highlight(
     return;
   }
 
-  if (!getAutoloadPath()) {
+  if (!getAutoload()) {
     try {
       await options.providers.languages[language]();
     } catch (error) {

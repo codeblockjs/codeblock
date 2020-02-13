@@ -10,7 +10,7 @@ export const CDN_AUTOLOAD_PATH =
 /**
  * @return the currently set autoloader path, if set
  */
-export const getAutoloadPath = () => currentAutoloadPath;
+export const getAutoload = () => currentAutoloadPath;
 
 /**
  * Enables or disables loading of languages via prismjs [autoloader](https://prismjs.com/plugins/autoloader/)
@@ -18,7 +18,7 @@ export const getAutoloadPath = () => currentAutoloadPath;
  *
  * @param url Location of prismjs, with trailing slash
  */
-export const setAutoloadPath = async (url: string) => {
+export const setAutoload = async (url: string) => {
   if (!url) {
     return;
   }
@@ -28,4 +28,4 @@ export const setAutoloadPath = async (url: string) => {
   }
 };
 
-setAutoloadPath(null);
+setAutoload(null);

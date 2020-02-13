@@ -1,7 +1,7 @@
 import React from 'react';
 import { ProviderConfig } from '@codeblock/core/types';
 
-import { setAutoloadPath } from '@codeblock/core';
+import { setAutoload } from '@codeblock/core';
 import staticLanguageProvider from '@codeblock/languages/lib/static';
 import staticThemeProvider from '@codeblock/themes/lib/static';
 
@@ -15,7 +15,7 @@ export const staticProviders: ProviderConfig = {
 
 export const CodeblockStatic = (props: CodeblockProps) => {
   React.useEffect(() => {
-    setAutoloadPath(null);
+    setAutoload(null);
   }, []);
 
   return <Codeblock providers={staticProviders} {...props} />;

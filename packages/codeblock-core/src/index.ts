@@ -1,10 +1,6 @@
 export { Prism } from './prism';
 
-export {
-  CDN_AUTOLOAD_PATH,
-  getAutoloadPath,
-  setAutoloadPath
-} from './autoload';
+export { CDN_AUTOLOAD_PATH, getAutoload, setAutoload } from './autoload';
 
 export { applyPrism } from './utils/apply-prism';
 
