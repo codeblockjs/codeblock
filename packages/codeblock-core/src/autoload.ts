@@ -21,7 +21,7 @@ export const getAutoload = () => currentAutoloadPath;
 export const setAutoload = async (url: string) => {
   currentAutoloadPath = url;
   if (Prism.plugins.autoloader) {
-    Prism.plugins.autoloader.languages_path = `${url}components/`;
+    Prism.plugins.autoloader.languages_path = url && `${url}components/`;
   }
 };
 
