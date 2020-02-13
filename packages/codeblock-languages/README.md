@@ -2,6 +2,8 @@
 
 Prismjs languages for `@codeblock`.
 
+## providers
+
 This package contains `prismjs/components` providers for `@codeblock`:
 
 - [`@codeblock/languages/lib/empty`](#empty)
@@ -12,7 +14,7 @@ Each provider is an object with a key for each supported language, and a functio
 
 The functions do not return anything! They merely ensure that the corresponding language module is available.
 
-```js
+```javascript
 import languages from '@codeblock/languages/lib/async';
 
 async function demo() {
@@ -21,8 +23,6 @@ async function demo() {
   // the languages `jsx` and `tsx` are available to prismjs now
 }
 ```
-
-## providers
 
 Note that none of these providers will work correctly for languages that depend on another language.
 

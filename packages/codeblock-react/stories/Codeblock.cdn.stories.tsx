@@ -1,8 +1,7 @@
 import raw from 'raw.macro';
 import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
-
-import { CodeblockStoryExample } from './index.stories';
+import { CodeblockStoryExample } from './storybook-helpers';
 
 export default { title: 'Codeblock.react', decorators: [withKnobs] };
 

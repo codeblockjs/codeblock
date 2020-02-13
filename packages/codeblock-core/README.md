@@ -14,7 +14,7 @@ You probably want to use [`@codeblock-react`](../codeblock-react/README.md) inst
 
 Any `@codeblock` modules that require access to the global `Prism` object should import it from `@codeblock/core`:
 
-```js
+```javascript
 import { Prism } from '@codeblock/core';
 // do something with Prism
 ```
@@ -25,7 +25,7 @@ import { Prism } from '@codeblock/core';
 
 Applies prismjs highlighting with codeblock mechanisms to an element or its children.
 
-```js
+```javascript
 import { applyPrism } from '@codeblock/core';
 import languages from '@codeblock/languages/lib/empty';
 import themes from '@codeblock/themes/lib/empty';
@@ -39,7 +39,7 @@ applyPrism(document.getElementById('content'), {
 
 Creates the classname for a prism language.
 
-```js
+```javascript
 import { getLanguageClassName } from '@codeblock/core';
 getLanguageClassName('jsx'); // 'language-jsx'
 getLanguageClassName('foo'); // '
@@ -50,7 +50,7 @@ getLanguageClassName(null); // '
 
 Creates the classname for a codeblock theme given a prism theme name.
 
-```js
+```javascript
 import { getThemeClassName } from '@codeblock/core';
 const className = getThemeClassName('okaidia'); // 'codeblock-theme-okaidia'
 const className = getThemeClassName('foo'); // ''
@@ -66,7 +66,7 @@ If the given element
 - does not have a language class, its children will be queried and used
 - does have a language class itself, its children will be ignored
 
-```js
+```javascript
 import { getLanguageMap } from '@codeblock/core';
 const map = getLanguageMap(document.body);
 console.log(map);
@@ -78,7 +78,7 @@ In order to reliably support all languages, you have to use the [autoloader plug
 
 The way to do this in `@codeblock` is to set the autoload path to a location where prismjs is available:
 
-```js
+```javascript
 import { setAutoload } from '@codeblock/core';
 setAutoload('https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/');
 // unset to disable:
@@ -94,7 +94,7 @@ This constant holds the autoload path for cdn-based `@codeblock` modules.
 
 This is done under the hood by cdn-based components like `@codeblock/react/cdn`.
 
-```js
+```javascript
 import { setAutoload, CDN_AUTOLOAD_PATH } from '@codeblock/core';
 setAutoload(CDN_AUTOLOAD_PATH);
 ```
