@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6-alpha.0](https://github.com/codeblockjs/codeblock/compare/@codeblock/core@2.0.5...@codeblock/core@2.0.6-alpha.0) (2020-02-14)
+
+
+### Features
+
+* add usePrismAutoload option ([c143c82](https://github.com/codeblockjs/codeblock/commit/c143c822c8dd330c34b18bad35b138a2a161e81f))
+
+
+
+
+
 ## [2.0.5](https://github.com/codeblockjs/codeblock/compare/@codeblock/core@2.0.4...@codeblock/core@2.0.5) (2020-02-13)
 
 

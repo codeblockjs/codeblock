@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1-alpha.0](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.2.0...@codeblock/react@2.2.1-alpha.0) (2020-02-14)
+
+
+### Features
+
+* use new core ([aa9f36b](https://github.com/codeblockjs/codeblock/commit/aa9f36bd38c8cb980aebf4adeb4fb472e1300747))
+
+
+
+
+
 # [2.2.0](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.1.8...@codeblock/react@2.2.0) (2020-02-13)
 
 

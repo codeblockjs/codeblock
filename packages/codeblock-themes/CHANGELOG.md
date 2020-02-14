@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7-alpha.0](https://github.com/codeblockjs/codeblock/compare/@codeblock/themes@2.0.6...@codeblock/themes@2.0.7-alpha.0) (2020-02-14)
+
+
+### Features
+
+* use core to create http and cdn  providers ([720ef29](https://github.com/codeblockjs/codeblock/commit/720ef29a961d70b565a4801a2430989510aaaf17))
+
+
+
+
+
 ## [2.0.6](https://github.com/codeblockjs/codeblock/compare/@codeblock/themes@2.0.5...@codeblock/themes@2.0.6) (2020-02-13)
 
 **Note:** Version bump only for package @codeblock/themes

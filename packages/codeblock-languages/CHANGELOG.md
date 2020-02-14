@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7-alpha.0](https://github.com/codeblockjs/codeblock/compare/@codeblock/languages@2.0.6...@codeblock/languages@2.0.7-alpha.0) (2020-02-14)
+
+
+### Features
+
+* add cdn and http providers ([99ac9fb](https://github.com/codeblockjs/codeblock/commit/99ac9fb57c3cc2dbf0fd5540e2502967fdd239ae))
+
+
+
+
+
 ## [2.0.6](https://github.com/codeblockjs/codeblock/compare/@codeblock/languages@2.0.5...@codeblock/languages@2.0.6) (2020-02-13)
 
 **Note:** Version bump only for package @codeblock/languages
