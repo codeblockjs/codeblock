@@ -9,6 +9,7 @@ export type PrismLanguageProvider = {
 };
 
 export interface ProviderConfig {
+  usePrismAutoload?: boolean;
   languages: PrismLanguageProvider;
   themes: PrismThemeProvider;
 }

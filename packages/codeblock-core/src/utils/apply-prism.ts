@@ -2,7 +2,6 @@ import { Prism } from '../prism';
 
 import { ApplyPrismOptions, PrismLanguage } from '../types';
 import { getLanguageMap } from './detect-languages';
-import { getAutoload } from '../autoload';
 
 /**
  * Async function that applies prism highlighting to a given element and its children.
@@ -51,7 +50,7 @@ export async function highlight(
     return;
   }
 
-  if (!getAutoload()) {
+  if (!options.providers.usePrismAutoload) {
     try {
       await options.providers.languages[language]();
     } catch (error) {
