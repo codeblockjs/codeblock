@@ -79,10 +79,10 @@ In order to reliably support all languages, you have to use the [autoloader plug
 The way to do this in `@codeblock` is to set the autoload path to a location where prismjs is available:
 
 ```javascript
-import { setAutoload } from '@codeblock/core';
+import { setAutoload } from '@codeblock/core/lib/http';
 setAutoload('https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/');
 // unset to disable:
-setAutoload(undefined);
+setAutoload(null);
 ```
 
 ## CDN_AUTOLOAD_PATH
@@ -95,7 +95,7 @@ This constant holds the autoload path for cdn-based `@codeblock` modules.
 This is done under the hood by cdn-based components like `@codeblock/react/cdn`.
 
 ```javascript
-import { setAutoload, CDN_AUTOLOAD_PATH } from '@codeblock/core';
+import { setAutoload, CDN_AUTOLOAD_PATH } from '@codeblock/core/lib/http';
 setAutoload(CDN_AUTOLOAD_PATH);
 ```
 

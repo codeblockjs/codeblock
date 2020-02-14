@@ -1,7 +1,5 @@
 export { Prism } from './prism';
 
-export { CDN_AUTOLOAD_PATH, getAutoload, setAutoload } from './autoload';
-
 export { applyPrism } from './utils/apply-prism';
 
 export { getLanguageMap } from './utils/detect-languages';
