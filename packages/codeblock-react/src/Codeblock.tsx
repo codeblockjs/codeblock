@@ -3,6 +3,7 @@ import React from 'react';
 
 import { CodeblockProps } from './types';
 import { usePrism } from './hooks';
+import useContent from '@loopmode/use-content';
 
 export function Codeblock({
   className,
@@ -25,6 +26,8 @@ export function Codeblock({
   onHighlight,
   onHighlightError,
 
+  src,
+
   // rest should be html props
   ...props
 }: CodeblockProps & {
@@ -46,6 +49,8 @@ export function Codeblock({
     onHighlightError
   });
 
+  const content = useContent(children, { src });
+
   return (
     <Wrapper
       {...props}
@@ -62,7 +67,7 @@ export function Codeblock({
             [languageClassName]: language
           })}
         >
-          {children}
+          {content}
         </pre>
       )}
     </Wrapper>
