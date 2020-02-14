@@ -4,11 +4,14 @@ import raw from 'raw.macro';
 import { withKnobs, select } from '@storybook/addon-knobs';
 
 import { availableThemes } from '@codeblock/core';
-import Codeblock from '@codeblock/react/cdn';
+import { StoryWrapper } from '../../../.storybook/StoryWrapper';
+
+const Codeblock = React.lazy(() => import('../src/Codeblock.cdn'));
+
 export default { title: 'Codeblock.react', decorators: [withKnobs] };
 
 export const AsContainer = () => (
-  <div>
+  <StoryWrapper>
     <h2>Container mode</h2>
     <p>
       Here, a single codeblock is used for multiple elements with individual
@@ -46,5 +49,5 @@ export const AsContainer = () => (
         </div>
       </div>
     </Codeblock>
-  </div>
+  </StoryWrapper>
 );
