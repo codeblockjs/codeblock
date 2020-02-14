@@ -1,7 +1,7 @@
 {
   "name": "@codeblock/themes",
   "description": "available prism themes and functionality for @codeblock packages",
-  "version": "2.0.7-alpha.0",
+  "version": "2.0.7",
   "main": "",
   "license": "MIT",
   "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",
@@ -31,7 +31,7 @@
     "prepublishOnly": "yarn rebuild"
   },
   "dependencies": {
-    "@codeblock/core": "^2.0.6-alpha.0",
+    "@codeblock/core": "^2.0.6",
     "jotform-css.js": "^1.0.1"
   }
 }
