@@ -1,7 +1,7 @@
 {
   "name": "@codeblock/react",
   "description": "components for using @codeblock with react",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "main": "lib/index.js",
   "license": "MIT",
   "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",

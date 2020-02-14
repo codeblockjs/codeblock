@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.2.1...@codeblock/react@2.3.0) (2020-02-14)
+
+
+### Features
+
+* add `src` prop for auto-loading external content ([8684d4f](https://github.com/codeblockjs/codeblock/commit/8684d4f616666c7799f6734d3ab23c5651b10908))
+
+
+
+
+
 ## [2.2.1](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.2.1-alpha.3...@codeblock/react@2.2.1) (2020-02-14)
 
 
