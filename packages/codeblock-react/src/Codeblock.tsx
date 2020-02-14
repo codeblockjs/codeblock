@@ -1,58 +1,64 @@
 import cx from 'classnames';
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 
-import { getLanguageClassName, getThemeClassName } from '@codeblock/core';
+import { getLanguageClassName } from '@codeblock/core';
 import { CodeblockProps } from './types';
-import { useCodeblock } from './hooks';
+import { useThemeLoader, usePrism } from './hooks';
 
 export function Codeblock({
   className,
-  providers,
   children,
+
+  // default values
+  as: Wrapper = 'div',
   theme = 'okaidia',
-  language,
+
+  // custom props
+
   innerProps,
   isContainer,
-  as: Wrapper = 'div',
+
+  providers,
+  language,
+
+  parallel,
+  async,
+  onHighlight,
+  onHighlightError,
+
+  // rest should be html props
   ...props
 }: CodeblockProps & {
+  /**
+   * Type of container to render. Either a string like div or a function that returns an element
+   */
   as?: keyof JSX.IntrinsicElements | ((p: any) => JSX.Element);
 }): JSX.Element {
-  const { applyCodeblock } = useCodeblock({ providers, theme, language });
+  const elementRef = React.useRef(null);
 
-  const doneRef = React.useRef<boolean>(false);
-  const elementRef = React.useRef<HTMLElement>(null);
-  const shouldInitialize: boolean = !!(
-    !doneRef.current &&
-    applyCodeblock &&
-    providers
-  );
-
-  const elementRefCallback = React.useCallback(
-    (element: HTMLElement) => {
-      elementRef.current = element;
-      if (shouldInitialize) {
-        doneRef.current = true;
-        applyCodeblock(elementRef.current);
-      }
-    },
-    [shouldInitialize]
-  );
+  const themeClassName = useThemeLoader({ providers, theme });
+  usePrism(elementRef, {
+    children,
+    language,
+    providers,
+    parallel,
+    async,
+    onHighlight,
+    onHighlightError
+  });
 
   return (
     <Wrapper
       {...props}
-      ref={isContainer && elementRefCallback}
-      className={cx('Codeblock', className, {
-        [getThemeClassName(theme)]: theme
-      })}
+      ref={isContainer && elementRef}
+      className={cx('Codeblock', className, themeClassName)}
     >
       {isContainer ? (
         children
       ) : (
         <pre
           {...innerProps}
-          ref={elementRefCallback}
+          ref={elementRef}
           className={cx(innerProps?.className, {
             [getLanguageClassName(language)]: language
           })}

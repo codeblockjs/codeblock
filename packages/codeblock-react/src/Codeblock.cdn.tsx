@@ -1,16 +1,19 @@
 import React from 'react';
-import { ProviderConfig } from '@codeblock/core/types';
 
 import { CodeblockProps } from './types';
-import { CodeblockHTTP } from './Codeblock.http';
 
-import { CDN_AUTOLOAD_PATH } from '@codeblock/core';
+import { useHTTPProviders } from './hooks';
+import { Codeblock } from './Codeblock';
+
+import { CDN_AUTOLOAD_PATH } from '@codeblock/core/lib/http';
+import cdnThemeProvider from '@codeblock/themes/lib/cdn';
 
 export const CodeblockCDN = ({
   prismPath = CDN_AUTOLOAD_PATH,
   ...props
 }: CodeblockProps & { prismPath?: string }) => {
-  return <CodeblockHTTP prismPath={prismPath} {...props} />;
+  const cdnProviders = useHTTPProviders(prismPath, cdnThemeProvider);
+  return <Codeblock providers={cdnProviders} {...props} />;
 };
 
 export default CodeblockCDN;

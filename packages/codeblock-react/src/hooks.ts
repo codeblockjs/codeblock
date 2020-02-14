@@ -1,76 +1,90 @@
 import React from 'react';
-import { applyPrism, getAutoload, setAutoload } from '@codeblock/core';
+import { applyPrism } from '@codeblock/core';
+import { getAutoload, setAutoload } from '@codeblock/core/lib/http';
 import emptyLanguageProvider from '@codeblock/languages/lib/empty';
-import { createHttpThemeProvider } from '@codeblock/themes/lib/utils/create-http-provider';
+import createHttpThemeProvider from '@codeblock/themes/lib/utils/create-http-provider';
+
+import { getThemeClassName } from '@codeblock/core';
 
 import { CodeblockOptions } from './types';
-import { ProviderConfig } from '@codeblock/core/types';
+import {
+  ProviderConfig,
+  PrismThemeProvider,
+  PrismTheme
+} from '@codeblock/core/types';
 
-export type UseCodeblockResult = {
-  applyCodeblock: (node: HTMLElement) => void;
-};
+export function usePrism(
+  elementRef: React.MutableRefObject<HTMLElement>,
+  props: CodeblockOptions
+) {
+  const dependencies = [
+    props.language,
+    props.async,
+    props.onHighlight,
+    props.onHighlightError,
+    props.parallel,
+    props.providers,
+    props.children
+  ];
 
-export function useCodeblock(props: CodeblockOptions): UseCodeblockResult {
-  useThemeLoader(props);
-  const refCallback = useApplyPrism(props);
-
-  return { applyCodeblock: refCallback };
+  React.useEffect(() => {
+    if (elementRef.current && props.providers) {
+      applyPrism(elementRef.current, {
+        async: props.async,
+        onHighlight: props.onHighlight,
+        onHighlightError: props.onHighlightError,
+        parallel: props.parallel,
+        providers: props.providers
+      });
+    }
+  }, dependencies);
 }
 
-export function useThemeLoader(props: CodeblockOptions): void {
+export function useThemeLoader(props: {
+  theme?: PrismTheme | '' | null;
+  providers?: ProviderConfig;
+}): string {
+  const [className, setClassName] = React.useState(
+    getThemeClassName(props.theme)
+  );
   React.useEffect(() => {
     if (!props.providers) return;
     (async () => {
       const themeLoader = props.providers.themes[props.theme];
       if (typeof themeLoader === 'function') {
         await themeLoader();
+        setClassName(getThemeClassName(props.theme));
       }
     })();
   }, [props.theme, props.providers]);
+
+  return className;
 }
 
-export function useHTTPProvider(prismPath: string): ProviderConfig | null {
-  const [isReady, setReady] = React.useState(prismPath === getAutoload());
-  // set base URL for prism. Note that this is a global setting:
-  // NOTE: if multiple instances set a different value, tha last one wins
+const httpPathProviderMapping: { [prismPath: string]: ProviderConfig } = {};
+
+export function useHTTPProviders(
+  prismPath: string,
+  defaultHttpThemeProvider?: PrismThemeProvider
+): ProviderConfig | null {
+  const [isReady, setReady] = React.useState(
+    prismPath === undefined || prismPath === getAutoload()
+  );
+
   React.useEffect(() => {
     setAutoload(prismPath);
     setReady(true);
   }, [prismPath]);
 
-  const httpProvider = React.useMemo<ProviderConfig>(() => {
-    return {
+  if (!httpPathProviderMapping[prismPath]) {
+    httpPathProviderMapping[prismPath] = {
+      usePrismAutoload: true,
       languages: emptyLanguageProvider,
-      themes: createHttpThemeProvider(prismPath)
+      themes: prismPath
+        ? createHttpThemeProvider(prismPath)
+        : defaultHttpThemeProvider
     };
-  }, [prismPath]);
+  }
 
-  return isReady ? httpProvider : null;
-}
-
-export function useApplyPrism(
-  props: CodeblockOptions
-): (node: HTMLElement) => void {
-  return React.useCallback(
-    node => {
-      if (node !== null) {
-        applyPrism(node, {
-          async: props.async,
-          onHighlight: props.onHighlight,
-          onHighlightError: props.onHighlightError,
-          parallel: props.parallel,
-          providers: props.providers
-        });
-      }
-    },
-    [
-      props.language,
-      props.theme,
-      props.async,
-      props.onHighlight,
-      props.onHighlightError,
-      props.parallel,
-      props.providers
-    ]
-  );
+  return isReady ? httpPathProviderMapping[prismPath] : null;
 }

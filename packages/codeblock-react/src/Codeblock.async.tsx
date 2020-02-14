@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { setAutoload } from '@codeblock/core';
+import { setAutoload } from '@codeblock/core/lib/http';
 import { ProviderConfig } from '@codeblock/core/types';
 import asyncLanguageProvider from '@codeblock/languages/lib/async';
 import asyncThemeProvider from '@codeblock/themes/lib/async';
@@ -14,9 +14,6 @@ export const asyncProviders: ProviderConfig = {
 };
 
 export const CodeblockAsync = (props: CodeblockProps) => {
-  React.useEffect(() => {
-    setAutoload(null);
-  }, []);
   return <Codeblock providers={asyncProviders} {...props} />;
 };
 
