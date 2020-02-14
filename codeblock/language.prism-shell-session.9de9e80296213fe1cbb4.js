@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[168],{919:function(module,exports){Prism.languages["shell-session"]={command:{pattern:/\$(?:[^\r\n'"<]|(["'])(?:\\[\s\S]|\$\([^)]+\)|`[^`]+`|(?!\1)[^\\])*\1|(?:^|[^<])<<\s*["']?(?:\w+?)["']?\s*(?:\r\n?|\n)(?:[\s\S])*?(?:\r\n?|\n)\3)+/,inside:{bash:{pattern:/(\$\s*)[\s\S]+/,lookbehind:!0,alias:"language-bash",inside:Prism.languages.bash},sh:{pattern:/^\$/,alias:"important"}}},output:{pattern:/.(?:.*(?:\r\n?|\n|.$))*/}}}}]);
+//# sourceMappingURL=language.prism-shell-session.9de9e80296213fe1cbb4.js.map
