@@ -2,6 +2,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const portfinder = require('portfinder');
+const { StatsWriterPlugin } = require('webpack-stats-plugin');
 
 const babelLoader = {
   loader: require.resolve('babel-loader'),
@@ -59,8 +60,15 @@ module.exports = async ({ config }) => {
           __dirname,
           '../storybook-static/report.html'
         )
-      })
-    ]
+      }),
+      process.env.NODE_ENV === 'production' &&
+        new StatsWriterPlugin({
+          stats: {
+            all: true,
+            assets: true
+          }
+        })
+    ].filter(Boolean)
   });
 
   return config;
