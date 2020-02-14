@@ -17,6 +17,11 @@ export function usePrism(
   elementRef: React.MutableRefObject<HTMLElement>,
   props: CodeblockOptions
 ) {
+  const themeClassName = useThemeLoader({
+    providers: props.providers,
+    theme: props.theme
+  });
+
   const dependencies = [
     props.language,
     props.async,
@@ -38,6 +43,8 @@ export function usePrism(
       });
     }
   }, dependencies);
+
+  return { themeClassName };
 }
 
 export function useThemeLoader(props: {

@@ -36,8 +36,7 @@ export function Codeblock({
 }): JSX.Element {
   const elementRef = React.useRef(null);
 
-  const themeClassName = useThemeLoader({ providers, theme });
-  usePrism(elementRef, {
+  const { themeClassName } = usePrism(elementRef, {
     children,
     language,
     providers,
