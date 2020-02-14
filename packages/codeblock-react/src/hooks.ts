@@ -59,10 +59,16 @@ export function useThemeLoader(props: {
   React.useEffect(() => {
     (async () => {
       const themeLoader = props.providers?.themes[props.theme];
+      const themeClassName = getThemeClassName(props.theme);
+      console.log(themeClassName);
       if (typeof themeLoader === 'function') {
-        await themeLoader();
+        try {
+          await themeLoader();
+        } catch (error) {
+          console.error(error);
+        }
       }
-      setClassName(getThemeClassName(props.theme));
+      setClassName(themeClassName);
     })();
   }, [props.theme, props.providers]);
 

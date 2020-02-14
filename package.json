@@ -22,7 +22,8 @@
     "watch": "yarn lerna run watch --stream --parallel",
     "start": "start-storybook -s .storybook/public",
     "build-storybook": "build-storybook -s .storybook/public",
-    "deploy": "sh ./deploy-storybook.sh"
+    "deploy": "sh ./deploy-storybook.sh",
+    "alpha": "yarn build && yarn lerna version --preid alpha && yarn lerna publish from-git"
   },
   "devDependencies": {
     "@loopmode/markdown": "^2.0.1",
