@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1-alpha.2](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.2.1-alpha.1...@codeblock/react@2.2.1-alpha.2) (2020-02-14)
+
+
+### Bug Fixes
+
+* update theme classname despite of missing providers ([9c7f0de](https://github.com/codeblockjs/codeblock/commit/9c7f0de70e341f91b1ef80257e5ab50591ac4ac8))
+
+
+
+
+
 ## [2.2.1-alpha.1](https://github.com/codeblockjs/codeblock/compare/@codeblock/react@2.2.1-alpha.0...@codeblock/react@2.2.1-alpha.1) (2020-02-14)
 
 **Note:** Version bump only for package @codeblock/react
