@@ -2114,12 +2114,12 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
-"@loopmode/markdown@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/@loopmode/markdown/-/markdown-2.0.1.tgz#57b17909844d4db605153c47b2faf22174bb7e7a"
-  integrity sha512-5bl9oA0+Ov63M9Grfs4TlzkxEJ/HWinthY2/l0/CpYkEt9LUNT5mkYwTr6CrjuFKbu9MFT7nyhHdRXmhBh61iA==
+"@loopmode/markdown@^2.0.8":
+  version "2.0.8"
+  resolved "https://registry.npmjs.org/@loopmode/markdown/-/markdown-2.0.8.tgz#12b778690f3b6e6a04310d1de00411256b54e876"
+  integrity sha512-Eq7a70iOHsnmyOMmb8M2iGvmHFC57GOoFywu5oXvBGQBjuCZdvA1vuw4oLKVNUy3Nx1TQ8MSwmqxpSMirg861A==
   dependencies:
-    "@codeblock/react" "^2.1.3"
+    "@codeblock/react" "^2.2.1-alpha.1"
     "@loopmode/use-content" "^1.1.3"
     remarkable "^1.7.1"
     styled-components "^4.2.0"

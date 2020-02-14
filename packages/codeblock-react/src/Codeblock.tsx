@@ -1,7 +1,6 @@
 import cx from 'classnames';
 import React from 'react';
 
-import { getLanguageClassName } from '@codeblock/core';
 import { CodeblockProps } from './types';
 import { usePrism } from './hooks';
 
@@ -37,6 +36,7 @@ export function Codeblock({
   const elementRef = React.useRef(null);
 
   const { languageClassName, themeClassName } = usePrism(elementRef, {
+    theme,
     children,
     language,
     providers,

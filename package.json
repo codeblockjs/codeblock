@@ -26,7 +26,7 @@
     "alpha": "yarn build && yarn lerna version --preid alpha && yarn lerna publish from-git"
   },
   "devDependencies": {
-    "@loopmode/markdown": "^2.0.1",
+    "@loopmode/markdown": "^2.0.8",
     "@loopmode/read-local-files": "^2.0.0",
     "@storybook/addon-info": "^5.3.12",
     "@storybook/addon-knobs": "^5.3.12",
