@@ -1,10 +1,12 @@
 import React from 'react';
-import { applyPrism } from '@codeblock/core';
+import {
+  applyPrism,
+  getLanguageClassName,
+  getThemeClassName
+} from '@codeblock/core';
 import { getAutoload, setAutoload } from '@codeblock/core/lib/http';
 import emptyLanguageProvider from '@codeblock/languages/lib/empty';
 import createHttpThemeProvider from '@codeblock/themes/lib/utils/create-http-provider';
-
-import { getThemeClassName } from '@codeblock/core';
 
 import { CodeblockOptions } from './types';
 import {
@@ -17,11 +19,11 @@ export function usePrism(
   elementRef: React.MutableRefObject<HTMLElement>,
   props: CodeblockOptions
 ) {
+  const languageClassName = getLanguageClassName(props.language);
   const themeClassName = useThemeLoader({
     providers: props.providers,
     theme: props.theme
   });
-
   const dependencies = [
     props.language,
     props.async,
@@ -44,7 +46,7 @@ export function usePrism(
     }
   }, dependencies);
 
-  return { themeClassName };
+  return { languageClassName, themeClassName };
 }
 
 export function useThemeLoader(props: {
@@ -55,13 +57,12 @@ export function useThemeLoader(props: {
     getThemeClassName(props.theme)
   );
   React.useEffect(() => {
-    if (!props.providers) return;
     (async () => {
-      const themeLoader = props.providers.themes[props.theme];
+      const themeLoader = props.providers?.themes[props.theme];
       if (typeof themeLoader === 'function') {
         await themeLoader();
-        setClassName(getThemeClassName(props.theme));
       }
+      setClassName(getThemeClassName(props.theme));
     })();
   }, [props.theme, props.providers]);
 

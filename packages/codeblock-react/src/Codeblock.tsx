@@ -3,7 +3,7 @@ import React from 'react';
 
 import { getLanguageClassName } from '@codeblock/core';
 import { CodeblockProps } from './types';
-import { useThemeLoader, usePrism } from './hooks';
+import { usePrism } from './hooks';
 
 export function Codeblock({
   className,
@@ -36,7 +36,7 @@ export function Codeblock({
 }): JSX.Element {
   const elementRef = React.useRef(null);
 
-  const { themeClassName } = usePrism(elementRef, {
+  const { languageClassName, themeClassName } = usePrism(elementRef, {
     children,
     language,
     providers,
@@ -59,7 +59,7 @@ export function Codeblock({
           {...innerProps}
           ref={elementRef}
           className={cx(innerProps?.className, {
-            [getLanguageClassName(language)]: language
+            [languageClassName]: language
           })}
         >
           {children}
