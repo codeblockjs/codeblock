@@ -1,14 +1,14 @@
 import raw from 'raw.macro';
 import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
-
-import { CodeblockStoryExample } from './index.stories';
+import { CodeblockStoryExample } from './storybook-helpers';
+import { StoryWrapper } from '../../../.storybook/StoryWrapper';
 
 const CodeblockAsync = React.lazy(() => import('../src/Codeblock.async'));
 
-export default { title: 'Codeblock.async', decorators: [withKnobs] };
-export const Default = () => (
-  <div>
+export default { title: 'Codeblock.react', decorators: [withKnobs] };
+export const With_AsyncProvider = () => (
+  <StoryWrapper>
     <h3>async</h3>
     <p>
       Resources (languages, themes) are dynamically imported at module level.
@@ -29,7 +29,7 @@ export const Default = () => (
     </ul>
     <CodeblockStoryExample
       codeblockRenderer={CodeblockAsync}
-      initialContent={raw('../src/Codeblock.async.tsx')}
+      children={raw('../src/Codeblock.async.tsx')}
     />
-  </div>
+  </StoryWrapper>
 );

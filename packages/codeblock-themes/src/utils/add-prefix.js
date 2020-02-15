@@ -12,6 +12,10 @@ module.exports = function addPrefix(
   const header = `/* prefix "${fullPrefix}" added by @codeblock/themes */`;
   const namespaced = parser.applyNamespacing(parsed, fullPrefix);
 
-  const prefixedCss = parser.getCSSForEditor(namespaced);
+  const prefixedCss = parser
+    .getCSSForEditor(namespaced)
+    // see https://github.com/jotform/css.js/issues/28
+    .replace(/svg\+xml;\n    /, 'svg+xml;');
+
   return `${header}\n${prefixedCss}`;
 };

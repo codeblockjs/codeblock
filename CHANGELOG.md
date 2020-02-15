@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/codeblockjs/codeblock/compare/v1.1.0...v1.1.1) (2020-02-12)
+
+
+### Bug Fixes
+
+* include root-level modules in publishing ([ff5dae4](https://github.com/codeblockjs/codeblock/commit/ff5dae4f59e82cd89693b630d1f6f661516b41cb))
+
+
+
+
+
+# [1.1.0](https://github.com/codeblockjs/codeblock/compare/v1.0.1...v1.1.0) (2020-02-12)
+
+
+### Features
+
+* expose hooks ([bb45ca1](https://github.com/codeblockjs/codeblock/commit/bb45ca1df8c8e75b1d7d1ca93b1c29f442a264e6))
+
+
+
+
+
 ## [1.0.1](https://github.com/codeblockjs/codeblock/compare/v1.0.0...v1.0.1) (2020-02-12)
 
 

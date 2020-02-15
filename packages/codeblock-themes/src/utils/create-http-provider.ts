@@ -1,31 +1,15 @@
-import { getAutoloadPath } from '@codeblock/core/lib/autoload';
-import { importPrismTheme } from './import-prism-theme';
+import { loadPrismTheme } from './load-prism-theme';
+import { PrismThemeProvider } from '@codeblock/core/lib/types';
 
-export const createHttpThemeProvider = (prismPath: string) => {
-  return {
-    coy: () => {
-      return importPrismTheme('coy', prismPath);
-    },
-    dark: () => {
-      return importPrismTheme('dark', prismPath);
-    },
-    funky: () => {
-      return importPrismTheme('funky', prismPath);
-    },
-    okaidia: () => {
-      return importPrismTheme('okaidia', prismPath);
-    },
-    prism: () => {
-      return importPrismTheme('prism', prismPath);
-    },
-    solarizedlight: () => {
-      return importPrismTheme('solarizedlight', prismPath);
-    },
-    tomorrow: () => {
-      return importPrismTheme('tomorrow', prismPath);
-    },
-    twilight: () => {
-      return importPrismTheme('twilight', prismPath);
-    }
-  };
+import { createHttpThemeProvider } from '@codeblock/core/lib/http';
+
+/**
+ * Creates an http theme provider with the `loadPrismTheme` function
+ * that will load and prefix the stylesheets with the theme-specific classname.
+ *
+ * @param prismPath base path of prismjs, should contain the `/themes` folder
+ */
+export const createHttpProvider = (prismPath: string): PrismThemeProvider => {
+  return createHttpThemeProvider(prismPath, loadPrismTheme);
 };
+export default createHttpProvider;

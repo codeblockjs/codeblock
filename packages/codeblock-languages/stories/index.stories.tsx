@@ -1,10 +1,9 @@
 import React from 'react';
 import raw from 'raw.macro';
-
-import { StoryWrapper } from '../../../.storybook/StoryWrapper';
 import Markdown from '@loopmode/markdown/http';
+import { StoryWrapper } from '../../../.storybook/StoryWrapper';
 
-export default { title: 'Codeblock.react' };
+export default { title: 'Codeblock.languages' };
 
 export const Readme = () => (
   <StoryWrapper>

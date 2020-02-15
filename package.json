@@ -16,14 +16,17 @@
   },
   "scripts": {
     "build": "yarn lerna run build --stream",
+    "release": "yarn clean && yarn build && lerna publish && sh ./deploy-storybook.sh",
     "clean": "rm -rf node_modules/.cache && rm -rf storybook-static && yarn lerna run clean --stream",
     "rebuild": "yarn clean && yarn build",
     "watch": "yarn lerna run watch --stream --parallel",
-    "start": "start-storybook -s .storybook/public -p 9000",
+    "start": "start-storybook -s .storybook/public",
     "build-storybook": "build-storybook -s .storybook/public",
-    "deploy-storybook": "yarn build-storybook && sh ./deploy-storybook.sh"
+    "deploy": "sh ./deploy-storybook.sh",
+    "alpha": "yarn build && yarn lerna version --preid alpha && yarn lerna publish from-git"
   },
   "devDependencies": {
+    "@loopmode/markdown": "^2.0.8",
     "@loopmode/read-local-files": "^2.0.0",
     "@storybook/addon-info": "^5.3.12",
     "@storybook/addon-knobs": "^5.3.12",
@@ -40,12 +43,14 @@
     "fs-extra": "^8.1.0",
     "jest": "^25.1.0",
     "lerna": "^3.20.2",
+    "portfinder": "^1.0.25",
     "raw.macro": "^0.3.0",
     "react-docgen-typescript-loader": "^3.6.0",
     "react-dom": "^16.12.0",
     "ts-jest": "^25.2.0",
     "ts-loader": "^6.2.1",
     "webpack-bundle-analyzer": "^3.6.0",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "webpack-stats-plugin": "^0.3.1"
   }
 }

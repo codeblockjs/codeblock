@@ -1,7 +1,8 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const portfinder = require('portfinder');
+const { StatsWriterPlugin } = require('webpack-stats-plugin');
 
 const babelLoader = {
   loader: require.resolve('babel-loader'),
@@ -10,7 +11,7 @@ const babelLoader = {
   }
 };
 
-module.exports = ({ config }) => {
+module.exports = async ({ config }) => {
   config = merge(config, {
     resolve: {
       extensions: ['.ts', '.tsx']
@@ -39,6 +40,7 @@ module.exports = ({ config }) => {
             }
           ],
           include: [
+            path.resolve(__dirname),
             path.resolve(__dirname, '../packages'),
             path.resolve(__dirname, '../node_modules/prismjs/themes'),
             path.resolve(__dirname, '../node_modules/@codeblock/themes/lib')
@@ -50,12 +52,23 @@ module.exports = ({ config }) => {
       new BundleAnalyzerPlugin({
         analyzerMode:
           process.env.NODE_ENV === 'production' ? 'static' : 'server',
+        analyzerPort: await portfinder.getPortPromise({
+          port: 8888, // minimum port
+          stopPort: 8999 // maximum port
+        }),
         reportFilename: path.resolve(
           __dirname,
           '../storybook-static/report.html'
         )
-      })
-    ]
+      }),
+      process.env.NODE_ENV === 'production' &&
+        new StatsWriterPlugin({
+          stats: {
+            all: true,
+            assets: true
+          }
+        })
+    ].filter(Boolean)
   });
 
   return config;

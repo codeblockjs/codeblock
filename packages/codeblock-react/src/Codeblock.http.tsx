@@ -1,30 +1,16 @@
 import React from 'react';
 
-import { ProviderConfig } from '@codeblock/core/types';
-import { setAutoloadPath } from '@codeblock/core';
-
-import emptyLanguageProvider from '@codeblock/languages/lib/empty';
-import { createHttpThemeProvider } from '@codeblock/themes/lib/utils/create-http-provider';
-
 import { Codeblock } from './Codeblock';
 import { CodeblockProps } from './types';
+import { useHTTPProviders } from './hooks';
+import { HTTP_AUTOLOAD_PATH } from '@codeblock/core/lib/http';
+import httpThemeProvider from '@codeblock/themes/lib/http';
 
 export const CodeblockHTTP = ({
-  prismPath,
+  prismPath = HTTP_AUTOLOAD_PATH,
   ...props
-}: CodeblockProps & { prismPath: string }) => {
-  // set base URL for prism. Note that this is a global setting:
-  // NOTE: if multiple instances set a different value, tha last one wins
-  React.useEffect(() => {
-    setAutoloadPath(prismPath);
-  }, [prismPath]);
-
-  const httpProviders = React.useMemo<ProviderConfig>(() => {
-    return {
-      languages: emptyLanguageProvider,
-      themes: createHttpThemeProvider(prismPath)
-    };
-  }, [prismPath]);
+}: CodeblockProps & { prismPath?: string }) => {
+  const httpProviders = useHTTPProviders(prismPath, httpThemeProvider);
 
   return <Codeblock providers={httpProviders} {...props} />;
 };

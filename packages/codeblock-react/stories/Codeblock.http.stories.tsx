@@ -1,16 +1,15 @@
 import raw from 'raw.macro';
 import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
-
-import { CodeblockStoryExample } from './index.stories';
-
-export default { title: 'Codeblock.http', decorators: [withKnobs] };
+import { CodeblockStoryExample } from './storybook-helpers';
+import { StoryWrapper } from '../../../.storybook/StoryWrapper';
+export default { title: 'Codeblock.react', decorators: [withKnobs] };
 
 const CodeblockHTTP = React.lazy(() => import('../src/Codeblock.http'));
 
-export const Local = () => {
+export const With_HTTP_Provider = () => {
   return (
-    <div>
+    <StoryWrapper>
       <h3>HTTP</h3>
       <p>
         Resources (languages, themes) are hosted on your server and loaded from
@@ -29,8 +28,8 @@ export const Local = () => {
           /** served via storybook --static-dir */
           <CodeblockHTTP prismPath={'/prismjs/'} {...props} />
         )}
-        initialContent={raw('../src/Codeblock.http.tsx')}
+        children={raw('../src/Codeblock.http.tsx')}
       />
-    </div>
+    </StoryWrapper>
   );
 };

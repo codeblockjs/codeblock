@@ -1,0 +1,18 @@
+/* @import url('https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css');
+ */
+html,
+body {
+  font-family: 'Nunito Sans', -apple-system, '.SFNSText-Regular',
+    'San Francisco', BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+}
+
+body {
+  padding: 0 1.5rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 1.5rem;
+}

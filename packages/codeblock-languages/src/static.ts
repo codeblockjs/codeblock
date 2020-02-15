@@ -1,4 +1,6 @@
-export default {
+import { PrismLanguageProvider } from '@codeblock/core/types';
+
+const staticLanguages: PrismLanguageProvider = {
   abap: () => {
     require('prismjs/components/prism-abap');
   },
@@ -609,3 +611,5 @@ export default {
     require('prismjs/components/prism-zig');
   }
 };
+
+export default staticLanguages;

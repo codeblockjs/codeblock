@@ -1,4 +1,6 @@
-export default {
+import { PrismLanguageProvider } from '@codeblock/core/types';
+
+const asyncLanguages: PrismLanguageProvider = {
   abap: () => {
     return import(
       /* webpackChunkName: 'codeblock/language.prism-abap' */ 'prismjs/components/prism-abap'
@@ -1015,3 +1017,4 @@ export default {
     );
   }
 };
+export default asyncLanguages;

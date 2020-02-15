@@ -3,13 +3,14 @@ import raw from 'raw.macro';
 
 import { withKnobs } from '@storybook/addon-knobs';
 
-import { CodeblockStoryExample } from './index.stories';
-export default { title: 'Codeblock.static', decorators: [withKnobs] };
+import { CodeblockStoryExample } from './storybook-helpers';
+import { StoryWrapper } from '../../../.storybook/StoryWrapper';
+export default { title: 'Codeblock.react', decorators: [withKnobs] };
 
 const CodeblockStatic = React.lazy(() => import('../src/Codeblock.static'));
 
-export const Default = () => (
-  <div>
+export const WithStaticProvider = () => (
+  <StoryWrapper>
     <h3>static</h3>
     <p>
       Resources (languages, themes) are statically imported at module level.
@@ -22,7 +23,7 @@ export const Default = () => (
     </ul>
     <CodeblockStoryExample
       codeblockRenderer={CodeblockStatic}
-      initialContent={raw('../src/Codeblock.static.tsx')}
+      children={raw('../src/Codeblock.static.tsx')}
     />
-  </div>
+  </StoryWrapper>
 );

@@ -1,70 +1,75 @@
 import cx from 'classnames';
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 
-import {
-  getLanguageClassName,
-  getThemeClassName,
-  applyPrism
-} from '@codeblock/core';
-import { CodeblockOptions, CodeblockProps } from './types';
+import { CodeblockProps } from './types';
+import { usePrism } from './hooks';
+import useContent from '@loopmode/use-content';
 
 export function Codeblock({
   className,
-  providers,
   children,
-  theme,
-  language,
+
+  // default values
+  as: Wrapper = 'div',
+  theme = 'okaidia',
+
+  // custom props
+
   innerProps,
-  as: Component = 'div',
+  isContainer,
+
+  providers,
+  language,
+
+  parallel,
+  async,
+  onHighlight,
+  onHighlightError,
+
+  src,
+
+  // rest should be html props
   ...props
 }: CodeblockProps & {
-  as?: string | ((props: HTMLAttributes<HTMLDivElement>) => JSX.Element);
+  /**
+   * Type of container to render. Either a string like div or a function that returns an element
+   */
+  as?: keyof JSX.IntrinsicElements | ((p: any) => JSX.Element);
 }): JSX.Element {
-  const options = { providers, theme, language };
-  useThemeLoader(options);
-  const applyPrismCallback = useApplyPrism(options);
-  return (
-    <Component
-      {...props}
-      className={cx('Codeblock', className, {
-        [getThemeClassName(theme)]: theme
-      })}
-    >
-      <pre
-        {...innerProps}
-        ref={applyPrismCallback}
-        className={cx(innerProps?.className, {
-          [getLanguageClassName(language)]: language
-        })}
-      >
-        {children}
-      </pre>
-    </Component>
-  );
-}
+  const elementRef = React.useRef(null);
 
-function useThemeLoader(props: CodeblockOptions): void {
-  React.useEffect(() => {
-    (async () => {
-      const themeLoader = props.providers.themes[props.theme];
-      if (typeof themeLoader === 'function') {
-        await themeLoader();
-      }
-    })();
-  }, [props.theme]);
-}
-function useApplyPrism(props: CodeblockOptions): (node: any) => void {
-  return React.useCallback(
-    node => {
-      if (node !== null) {
-        applyPrism(node, {
-          providers: props.providers,
-          async: props.async,
-          onHighlight: props.onHighlight,
-          parallel: props.parallel
-        });
-      }
-    },
-    [props.language]
+  const { languageClassName, themeClassName } = usePrism(elementRef, {
+    theme,
+    children,
+    language,
+    providers,
+    parallel,
+    async,
+    onHighlight,
+    onHighlightError
+  });
+
+  const content = useContent(children, { src });
+
+  return (
+    <Wrapper
+      {...props}
+      ref={isContainer && elementRef}
+      className={cx('Codeblock', className, themeClassName)}
+    >
+      {isContainer ? (
+        children
+      ) : (
+        <pre
+          {...innerProps}
+          ref={elementRef}
+          className={cx(innerProps?.className, {
+            [languageClassName]: language
+          })}
+        >
+          {content}
+        </pre>
+      )}
+    </Wrapper>
   );
 }

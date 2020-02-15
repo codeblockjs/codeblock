@@ -8,6 +8,7 @@ import {
 
 // override and make providers optional as there is a react default prop per component
 export interface CodeblockOptions extends Omit<ApplyPrismOptions, 'providers'> {
+  children?: React.ReactChild | React.ReactChild[];
   providers?: ProviderConfig;
   className?: string;
   theme?: PrismTheme | '' | null;
@@ -15,6 +16,8 @@ export interface CodeblockOptions extends Omit<ApplyPrismOptions, 'providers'> {
 }
 
 export type CodeblockProps = CodeblockOptions & {
+  src?: string;
+  isContainer?: boolean;
   children?: React.ReactChild | React.ReactChild[];
   innerProps?: React.HTMLAttributes<HTMLPreElement>;
 } & Omit<HTMLAttributes<HTMLDivElement>, 'onError'>;

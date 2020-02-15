@@ -1,1 +1,2 @@
-export * from './Codeblock.static';
+import Codeblock from './Codeblock.static';
+export default Codeblock;
