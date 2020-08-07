@@ -31,6 +31,6 @@
     "prepublishOnly": "yarn rebuild"
   },
   "dependencies": {
-    "prismjs": "1.19.0"
+    "prismjs": "1.21.0"
   }
 }
